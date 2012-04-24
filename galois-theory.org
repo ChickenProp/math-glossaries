@@ -1,0 +1,182 @@
+#+TITLE:     A Glossary of Galois Theory
+#+AUTHOR:    Phil Hazelden
+#+EMAIL:     philip.hazelden@gmail.com
+#+DATE:      2012-02-04 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+LaTeX_HEADER:\usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+LaTeX_HEADER: \usepackage{stmaryrd}
+#+LaTeX_HEADER: \usepackage{hackgreek}
+#+LaTeX_HEADER: \DeclareMathOperator{\aut}{Aut}
+#+LaTeX_HEADER: \DeclareMathOperator{\gal}{Gal}
+#+LaTeX_HEADER: \DeclareMathOperator{\fix}{Fix}
+#+LaTeX_HEADER: \DeclareMathOperator{\ffrac}{Frac}
+#+LaTeX_HEADER: \DeclareMathOperator{\fchar}{char}
+
+* Notation
+
+- $Φ_n$ :: The $n$'th cyclotomic polynomial.
+- $𝔽_p$ :: The finite field $ℤ/(p)$, where $p$ is prime.
+- $𝔽_q$ :: A finite field of order $q = p^n$. Exists and is unique, but is not $ℤ/(p)$ unless $n = 1$.
+- $f_{α}^K$ :: The /minimal polynomial/ of $α$ over $K$; the unique monic polynomial in $K[X]$ of minimal degree such that $f_α^K(α) = 0$. Usually $α ∈ L\backslash K$ where $L/K$ is some field extension.
+- $K$ :: A field.
+- $K(α_1, …, α_n)$ :: The minimal field containing the subfield $K$ and the elements $α_i$.
+- $L$ :: A field; usually containing $K$.
+- $L/K$ :: A field extension.
+- $L^H$ :: See \emph{fixed field}.
+- $p$ :: A prime.
+- $R$ :: A unique factorisation domain.
+
+* Definitions
+- Abelian :: An extension $L/K$ is abelian if it is Galois, and $\gal(L/K)$ is abelian.
+- Algebraic :: $α ∈ L$ is algebraic over $K$ if there is $f ∈ K[X]$ such that $f(α) = 0$.
+               \par $L/K$ is algebraic if every $α ∈ L$ is algebraic over $K$.
+- Algebraically closed :: $K$ is algebraic if all algebraic extensions of $K$ are equal to $K$; equivalently if all finite extensions of $K$ are equal to $K$; equivalently if every polynomial $f ∈ K[X]$ splits in $K$; equivalently if every nonconstant $f ∈ K[X]$ has a root in $K$.
+- Automorphism :: A $K$-automorphism $L → L$ is an automorphism on $L$ which restricts to the identity on $K$.
+- Automorphism group :: $\aut(L/K)$ is the group of all $K$-automorphisms $L → L$.
+     \par If $L^{\aut(L/K)} = K$, then $\aut(L/K)$ is also written $\gal(L/K)$.
+- Constructible :: $L/K$ is constructible if there is a sequence of extensions $K_1/K, K_2/K_1, …, K_n/K_{n-1}$ with $L ⊂ K_n$ and each $[K_{i+1} : K_i] ∈ \{1,2\}$.
+- Cyclotomic polynomial :: $Φ_n = \prod_ζ (X - ζ) ∈ ℤ[X]$ where $ζ$ are the primitive $n$'th roots of unity. $X^n - 1 = \prod_{d|n} Φ_d$.
+- Fixed field :: For $H ≤ \aut(L/K)$, $L^H$ is the intermediate field ($K ≤ L^H ≤ L$) containing those elements of $L$ which are fixed by every element of $H$. Also written $\fix(H)$ if $L$ is clear from the context. $L^H = \{ α ∈ L: g ∈ H ⇒ g(α) = α \}$.
+- Frobenius automorphism :: when $K$ is a finite field of characteristic $p$, this is the map $F: K → K: x \mapsto x^p$.
+- Galois extension :: $L/K$ is /Galois/ if $L^{\aut(L/K)} = K$. That is, no $α ∈ L$ is preserved by every $K$-automorphism $L → L$.
+- Galois group :: $\gal(L/K)$ is $\aut(L/K)$, when $L/K$ is Galois.
+- Normal :: $L/K$ is normal if for each $α ∈ L$, $f_α^K$ splits in $L$.
+            \par All Galois extensions are normal, and $L/K$ is normal iff $L$ is the splitting field for some polynomial $f ∈ K[X]$.
+- Normal closure :: A normal closure of a finite extension $L/K$ is a minimal $M/L$ such that $M/K$ is normal. A normal closure always exists, is finite, and any two normal closures are $L$-isomorphic.
+- Perfect :: A field is called perfect if all of its algebraic extensions are separable. All extensions of $ℚ$, algebraically closed fields, and finite fields are perfect.
+- Primitive :: A polynomial $f ∈ R[X]$ is primitive if there is no irreducible $p ∈ R$ such that $p | f$.
+               \par If $g,h ∈ R[X]$ are primitive then so is $gh$.
+               \par If $g', h' ∈ \ffrac(R)[X]$ and $f = g'h'$ is nonconstant primitive, then $∃ a,b ∈ \ffrac(R): ag', bh' ∈ R[X]$ are primitive and $f = abg'h'$.
+               \par A field extension $L/K$ is primitive if $L = K(α)$ for some $α$.
+               \par A primitive $n$'th root of unity is one which has order $n$.
+- Radical :: A finite extension $L/K$ is radical if we can write $L = K(α_1, …, α_r)$ with integers $n_1, … n_r$ such that for each $i$, $α_i^{n_i} ∈ K(α_1, …, α_{i-1})$.
+- Separable polynomial :: An irreducible polynomial $f ∈ K[X]$ is seperable if its derivative is nonzero; equivalently if $f$ has no repeated root in any larger field $L/K$; equivalently if $f$ splits into distinct linear factors over its splitting field.
+     \par Every polynomial is separable over a field of characteristic $0$ (an extension of $\mathbb{Q}$).
+- Separable extension :: $L/K$ is separable if for each $α ∈ L$, $f_α^K$ is separable.
+     \par An extension is Galois iff it is normal and separable. (i.e.\nbsp{}iff for each $α ∈ L$, $f_α^K = c(X-α_1)\cdots(X-α_n)$ where the $α_i$ are distinct elements of $L$.)
+- Solvable :: Finite $L/K$ is solvable if it is contained in some radical extension. $f ∈ K[X]$ is solvable if its splitting field is solvable. A group $G$ is solvable if there is a chain $G = G_0 ⊵ G_1 ⊵ … ⊵ G_n = \{1\}$, such that each $G_i / G_{i+1}$ is abelian.
+- Split :: $f ∈ K[X]$ splits in $L ⊂ K$ if $f = c(X-α_1)\cdots(X-α_n)$ where $α_i ∈ L$. (i.e.\nbsp{}all roots of $f$ are in $L$.)
+- Splitting field :: $L/K$ is a splitting field for $f ∈ K[X]$ if
+  - $f$ splits in $L$
+  - $L = K(α_1, …, α_n)$ where $α_i$ are roots of $f$ in $L$ (i.e.\nbsp{}$L$ is not "too big").
+
+* Theorems
+
+** Irrecuducibility of polynomials
+
+- Remainder theorem :: If $f ∈ K[X]$ and $α ∈ K$, then $(X - α)|f$ iff $f(α) = 0$.
+- Gauss' lemma :: If $f ∈ R[X]$ is nonconstant primitive and irreducible over $R$, then it is irreducible over $\ffrac(R)$.
+- Reduction :: Suppose $f ∈ R[X]$ is primitive, $p ∈ R$ is irreducible and $(f \mod p)$ is irreducible in $(R/(p))[X]$. Then $f$ is irreducible in $R[X]$.
+- Eisenstein's criterion :: Suppose $f ∈ R[X]$ primitive and $∃p ∈ R$ irreducible such that: $p \nmid a_n$; $p \mid a_i$ for $0 ≤ i < n$; $p \mid a_0^2$. Then $f$ is irreducible over $R$ and $\ffrac(R)$.
+
+** Field extensions
+
+- If $α$ is algebraic then $K(α) ≅ K[X]/(f_α^K)$, $α \mapsto X$. If $n = \deg_K(α)$ then $[K(α) : K] = n$ and $1, α, …, α^{n-1}$ is a basis of the $K$-vector space $K(α)$.
+- If $α$ is transcendental then $K(α) ≅ K(X)$, $α \mapsto X$.
+- Finite field extensions are algebraic.
+- If $K(α)$ is an algebraic extension and $L/K$ is any extension, there is a bijection
+  \[ \{ K\text{-homomorphisms } K(α) → L \} → \{ \text{roots of } f_α^K \text{ in } L \} \]
+  mapping $φ \mapsto φ(α)$. (Note, $α$ need not be in $L$.)
+- *Tower law* $[M : K] = [M : L][L : K]$
+- If $L/K$ is a finite field extension, then every $K$-homomorphism $L → L$ is a $K$-automorphism.
+
+** Automorphism groups and intermediate fields
+
+- There is a map $\{ \text{intermediate fields of } L/K \} → \{ \text{subgroups of } \aut(L/K) \}$, given by $L' → \aut(L/L')$.
+- $L/N/M/K$ field extensions with $N/M$ finite. Then $[ \aut(L/M) : \aut(L/N) ] ≤ [ N : M ]$.
+- Corollary: $L/K$ finite $⇒ |\aut(L/K)| ≤ [ L : K ]$.
+- If $H ≤ G ≤ \aut(L/K)$ then $[L^H : L^G] ≤ [ G : H ]$.
+- Special case: if $H$ is trivial we have $[L:L^G ≤ |G|$.
+- Corollary: $[L : L^{\aut(L/K)}] ≤ |\aut(L/K)| ≤ [L:K]$.
+- If $L/K$ is finite then it is Galois iff $|\aut(L/K)| = [L:K]$.
+- Special case: if $L = K(α)$ with $[L:K]=n$, then $L/K$ is Galois iff $f_α^K$ has precisely $n$ distinct roots in $L$.
+- *Fundamental theorem of Galois theory* Let $L/K$ be a finite Galois extension. There is an inclusion-reversing bijection
+     \[ \{ M : L/M/K \} ↔ \{ H : H ≤ \aut(L/K) \} \]
+     mapping $M \mapsto \aut(L/M)$ and $L^H \mapsfrom H$. Moreover, $L/M$ is Galois; $[L:M] = |H|$ and $[M:K] = [\gal(L/K):H]$; $M/K$ is Galois iff $H ⊴ \gal(L/K)$ and these imply $\gal(M/K) = \gal(L/K)/H$.
+- For $L/M/K$ with $L/K$ Galois, TFAE:
+  - $\gal(L/M) ⊴ \gal(L/K)$
+  - For each $σ ∈ \gal(L/K)$, $σ(M) = M$
+  - $M/K$ is Galois
+  - $M/K$ is normal
+
+** Splitting fields
+
+- Given nonzero $f ∈ K[X]$ of degree $n$, there is a splitting field $L$ with $[L:K] ≤ n!$.
+- *Isomorphism extension theorem* If $σ:K→K'$ is an isomorphism, $f ∈ K[X]$, $L$ is a splitting field of $f$ and $L'$ is a splitting field of $σ(f)$, then there is an isomorphism $L → L'$ extending $σ$.
+- Corollary: $f ∈ K[X]$ has a unique splitting field up to $K$-isomorphism.
+- For a finite extension L/K, TFAE:
+  - $L/K$ is normal
+  - $L/K$ is a splitting field for some $f ∈ K[X]$
+  - For any extension $M/L$ and $K$-homomorphism $σ:L→M$, $σ(L) = L$.
+- Any finite extension $L/K$ has a normal closure $N/L$ which is finite and unique up to $L$-isomorphism.
+- Every field $K$ has an algebraic closure, unique up to $K$-isomorphism.
+
+** Separability
+
+- $f ∈ K[X]$ has a repeated root $a$ iff $X - a$ divides both $f$ and $f'$.
+- *Separable polynomials* If $f ∈ K[X]$ is irreducible, TFAE:
+  - $f$ has no repeated roots in any extension $L/K$
+  - $f$ splits into distinct linear factors over its splitting field
+  - $f' ≠ 0$.
+- If $\fchar K = 0$, every irreducible polynomial is separable.
+- If $\fchar K = p > 0$, $f$ irreducible, then $f$ is separable iff there is $g ∈ K[X]$ such that $f = g(X^p)$.
+- A finite extension $L/K$ is Galois iff it is normal and separable; iff it is the splitting field of some $f ∈ K[X]$ such that all irreducible factors of $f$ are separable.
+- *Primitive extension theorem* finite $L/K$ is primitive iff there exist only finitely many intermediate fields.
+- Corollary: Finite degree separable extensions are primitive.
+
+** Finite fields
+
+- A finite subgroup of $K^*$ is cyclic.
+- If $L/K$ are both finite fields, the extension is primitive.
+- $|K| = p^n$ iff $K$ is a splitting field of $X^n - X ∈ 𝔽_p[X]$.
+- Corollary: there is a unique finite field of order $p^n$.
+- If $|K| = p^n$ then $K/𝔽_p$ is Galois, and $\gal(K/𝔽_p)$ is cyclic of order $n$, generated by the Frobenius automorphism $F$.
+- Corollary: the subfields of $𝔽_{p^n}$ are $𝔽_{p^m}$ for each $m|n$.
+- Corollary: if $L$ is finite then any $L/K$ is Galois, with $\gal(L/K)$ generated by a power of $F$.
+
+** Cyclotomic fields
+
+- Let $L/K$ be any field extension and $ζ ∈ L$ a primitive $n$'th root of $1$. Then $K(ζ)/K$ is Galois, and there is an injective homomorphism $\gal(K(ζ)/K) → (ℤ/nℤ)^* : σ \mapsto (k \text{ such that } σ(ζ) = ζ^k)$.
+- If $K = ℚ$ above, then the homomorphism is an isomorphism, and $Φ_n$ is irreducible.
+- Corollary: any subfield of $ℚ(ζ)$, where $ζ$ is any root of unity, is abelian over $ℚ$.
+- Any abelian extension of $ℚ$ is a subfield of some $ℚ(ζ)$. (Proof nonexaminable.)
+- The regular $n$-gon can be constructed from two points in the plane iff $n$ is of the form $n = 2^m \prod_{i=1}^k p_i$, where the $p_i$ are distinct Fermat primes (primes of the form $2^j + 1$).
+
+** Solvability in radicals
+
+- If $x$ can be written in terms of $×$, $÷$, $+$, $-$ and $\sqrt[n]{}$ ($n ∈ ℕ$) applied to elements of $K$, then $K(x)/K$ is solvable.
+- If $L/K$ is radical and $N$ is the normal closure, then $N/K$ is radical.
+- A finite extension $L/K$ is radical iff its normal closure $N/K$ is radical.
+- Irreducible $f ∈ K[X]$ is solvable iff there is a solvable extension $L/K$ with some $x ∈ L$ such that $f(x) = 0$.
+- If $ζ ∈ K$ is a primitive $n$'th root of unity, and $α^n ∈ K$, then $K(α)/K$ is Galois with $\gal(K(α)/K)$ cyclic of order dividing $n$.
+- If $G$ is a solvable group and $H ≤ G$, then $H$ is solvable; if $H ⊴ G$ then $G/H$ is solvable also.
+- Let $\fchar K = 0$, $f ∈ K[X]$ be solvable, and $L$ be the splitting field of $f$. Then $\gal(L/K)$ is solvable.
+- If $H ⊴ G$ and $G/H$ is abelian, then $[G,G] ≤ H$.
+- $[A_5, A_5] = A_5$; as a corollary, $A_5$ is not solvable.
+- If $p$ is prime, $H ≤ S_p$, and $H$ conains a $p$-cycle and a $2$-cycle, then $H = S_p$.
+- If $f ∈ ℚ[X]$ is an irreducible quintic with three real and two complex roots, then $f$ is not solvable.
+- Corollary: there is no general formula for solving quintic polynomials in radicals.
+
+** Calculating Galois groups
+
+In this section we let $f ∈ K[X]$ of degree $n$, and $L$ be it's splitting field, with $f$ having no repeated roots in $L$. We write $\gal(f)$ for $\gal(L/K)$, which can be thought of as a subgroup of $S_n$, as each $σ ∈ \gal(f)$ is defined by a permutation of the roots of $f$.
+
+We write $f = \sum_{i=0}^n a_iX^i = \prod_{i=1}^n (X - α_i)$. We also let $Δ = \prod_{i<j}(α_i - α_j)$ and $D = Δ^2 = \prod_{i ≠ j}|a_i - a_j|$, the discriminant of $f$.
+
+- $f$ is irreducible iff $\gal(f)$ is transitive (i.e.\nbsp{}for every pair $α_1, α_2$ of roots of $f$, there is $σ ∈ \gal(f) : σ(α_1) = α_2$).
+- Any polynomial expression in $α_i$ which is symmetric (invariant under permutation of the $α_i$) is a polynomial in the $a_i$ (so e.g.\nbsp{}$D$ is but $Δ$ isn't).
+- Let $σ ∈ \gal(f)$. Then $σ(Δ) = ±Δ$, $+$ if $σ$ is an even permutation and $-$ if $σ$ is an odd permutation of roots.
+- Corollary: $\gal(f) ≤ A_n$ iff $Δ ∈ K$.
+- Corollary: If $f$ is irreducible and $n = 3$, then $\gal(f) = A_3$ if $Δ ∈ K$, $S_3$ otherwise.

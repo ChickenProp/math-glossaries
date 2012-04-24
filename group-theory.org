@@ -1,0 +1,218 @@
+#+TITLE:     A Glossary of Group Theory
+#+AUTHOR:    Phil Hazelden
+#+EMAIL:     philip.hazelden@gmail.com
+#+DATE:      2012-02-04 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+LaTeX_HEADER:\usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+LaTeX_HEADER: \usepackage{stmaryrd}
+#+LaTeX_HEADER: \usepackage{hackgreek}
+#+LaTeX_HEADER: \DeclareMathOperator{\sym}{Sym}
+#+LaTeX_HEADER: \DeclareMathOperator{\stab}{Stab}
+#+LaTeX_HEADER: \DeclareMathOperator{\C}{C}
+#+LaTeX_HEADER: \DeclareMathOperator{\N}{N}
+#+LaTeX_HEADER: \DeclareMathOperator{\Z}{Z}
+#+LaTeX_HEADER: \DeclareMathOperator{\Cl}{Cl}
+#+LaTeX_HEADER: \DeclareMathOperator{\im}{im}
+#+LaTeX_HEADER: \DeclareMathOperator{\syl}{Syl}
+#+LaTeX_HEADER: \DeclareMathOperator{\aut}{Aut}
+#+LaTeX_HEADER: \DeclareMathOperator{\inn}{Inn}
+#+LaTeX_HEADER: \DeclareMathOperator{\chars}{char}
+#+LaTeX_HEADER: \DeclareMathOperator{\gl}{GL}
+#+LaTeX_HEADER: \DeclareMathOperator{\gsl}{SL} % \sl already exists.
+#+LaTeX_HEADER: \DeclareMathOperator{\pgl}{PGL}
+#+LaTeX_HEADER: \DeclareMathOperator{\psl}{PSL}
+#+LaTeX_HEADER: \newcommand{\set}[1]{ \left\{ #1 \right\} }
+#+LaTeX_HEADER: \newcommand{\conj}[2]{ #2^{-1} #1 #2 }
+#+LaTeX_HEADER: \newcommand{\comm}[2]{ \left[#1,#2\right] }
+
+* Notation
+
+- $\comm gh$ :: The commutator, $g^{-1}h^{-1}gh$.
+- $\comm GG$ :: The commutator subgroup, $⟨\comm gh \mid g,h ∈ G⟩$.
+- $α^g$ :: When $G ∋ g$ acts on $Ω ∋ α$, the image of $α$ under $g$.
+- $α^G$ :: When $G$ acts on $Ω ∋ α$, the orbit $\{ α^g : g ∈ G \}$.
+- $\aut(G)$ :: The automorphism group of $G$.
+- $\C_g$ :: The conjugation map $x \mapsto \conj xg$.
+- $\C_G(x)$ :: The centraliser of $x$ in $G$; $\{ g ∈ G : gx = xg \}$. This is $G_x$ under the conjugation action.
+- $\C_G(H)$ :: The centraliser of $H$ in $G$; $\{ g ∈ G : h ∈ H ⇒ gh = hg \}$. This is not an orbit or stabiliser; see also $\N_G(H)$.
+- $\Cl_G(x)$ :: The conjugacy class of $x$ in $G$; $\{ \conj xg : g ∈ G \}$. This is $x^G$ under the conjugation action.
+- $G^Ω$ :: When $G$ acts on $Ω$, $G^Ω ≤ \sym(Ω)$ contains permutations of the form $α \mapsto α^g$, for each $g ∈ G$.
+- $G^{(i)}$ :: $G^{(0)} = G$, and $G^{(i)} = \comm {G^{(i-1)}}{G^{(i-1)}}$.
+- $G_α$ :: The stabilizer of $α$ in $G$, $\stab_G(α) = \{ g ∈ G : α^g = α \}$.
+- $G_{α,β}$ :: The stabilizer of $α$ and $β$, $G_α \cap G_β$.
+- $G_Σ$ :: The setwise stabilizer of $Σ$, $\{ g ∈ G : α ∈ Σ ⇒ α^g ∈ Σ \}$.
+- $G_{(Σ)}$ :: The pointwise stibilizer of $Σ$, $\bigcap_{α∈Σ} G_α$.
+- $\inn(G)$ :: The inner automorphism group of G, $\set{ \C_g : g ∈ G }$. $\inn(G) ⊴ \aut(G)$.
+- $\N_G(H)$ :: The normalizer of $H$ in $G$, $\{ \conj Hg : g ∈ G \}$. This is $G_H$ under the conjugation action.
+- $n^{\underline k}$ :: $n$ to the $k$ falling, $n(n-1)…(n-k+1)$.
+- $\syl_p(G)$ :: The set of Sylow $p$-subgroups of $G$.
+- $\Z(G)$ :: The centre of $G$, $\{ g ∈ G : x ∈ G ⇒ gx = xg \}$. The kernel of the conjugation action.
+
+* Definitions
+
+- Block :: A block for $G^Ω$ is a subset $B \subsetneq Ω$ with $|B| > 1$ such that for every $g ∈ G$, either $B^g = B$ or $B^g \cap B = \varnothing$.
+- Characteristic subgroup :: $N ≤ G$ is a characteristic subgroup (written $N \chars G$) if every automorphism of $G$ preserves $N$.
+- Conjugation action :: $G$ acts on itself by $x^g = \conj xg$. Also, $G$ acts on $\{ H : H ≤ G \}$ by $H^g = \conj Hg$.
+- Coset action :: if $H ≤ G$, then $G$ acts on $Ω = \{ Hx : x ∈ G \}$ by $(Hx)^g = Hxg$. Transitive, not necessarily faithful. If $H = 1$, this is the right-regular action.
+- Cycle type :: The cycle type of a permutation group is the lengths of the cycles in its cyclic decomposition.
+- Direct product :: if $G_1,…,G_n$ are groups then $\prod_{i=1}^nG_i = G_1×…×G_n$ is the group $\{(g_1,…,g_n) : g_i ∈ G_i\}$ with obvious multiplication.
+- Faithful :: A group action is faithful if no two orbits are identical; for every $g ≠ e$ there is $α$ such that $α^g ≠ α$.
+- Maximal :: $H ≤ G$ is maximal if $H < G$ and there is no $K$ with $H < K < G$.
+- $n$-transitive :: $G^Ω$ is $n$-transitive if $|Ω| ≥ n$ and for any $n$-tuples $α_i, β_i$, there is $g : α_i^g = β_i$. (Here the $α_i$ are distinct and the $β_i$ are distinct, but may have $α_i = β_j$.)
+- Nilpotent :: A finite group is nilpotent if it is the direct product of its Sylow subgroups.
+- $p$-group :: For prime $p$, a finite group $G$ is a $p$-group if $|G| = p^n$.
+- Perfect :: A group is perfect if $G = \comm GG$.
+- Primitive :: $G^Ω$ is primitive if it is transitive and has no blocks; imprimitive if it is transitive and has blocks.
+- Regular normal subgroup :: when $G^Ω$ is specified, a regular normal subgroup is $N ⊴ G$ such that $N^Ω$ is regular.
+- Right-regular action :: $G$ acts on itself by $x^g = xg$. Transitive and faithful.
+- Semidirect product :: if $H ≤ G$, $K ⊴ G$, $HK = G$ and $H \cap K = 1$, then $G = H ⋉ K = K ⋊ H$. If $φ$ is an action of $H$ on $K$, then $H ⋉_φ K = K ⋉_φ H$ is the group $\{ (h,k) : h ∈ H, k ∈ K \}$ with multiplication $(h_1,k_1)(h_2,k_2) = (h_1h_2, k_1^{h_2}k_2)$. If $φ$ is the conjugation action $k^h = \conj kh$, this just gives us $G$, but we can use this to define products of any two groups.
+- Series :: A sequence $G = G_0 ≥ G_1 ≥ … ≥ G_n = 1$. May be *normal* if each $G_i ⊴ G$; or *subnormal* if each $G_i ⊴ G_{i-1}$; or a *composition series* if it is subnormal and each factor group $G_i / G_{i+1}$ is simple. The *derived series* has $G_i = G^{(i)} = \comm{G^{(i-1)}}{G^{(i-1)}}$, and need not terminate at $1$.
+- Simple :: A simple group has no normal subgroups except itself and $1$. ($1$ does not count as simple, analogously to primes.)
+- Soluble :: $G$ is soluble if it has a finite subnormal series with each factor group abelian.
+- Sylow $p$-subgroup :: $H ≤ G$ is a Sylow $p$-subgroup if $|H| = p^n$ and $|G| = p^nt$, where $p \nmid t$.
+- Transitive :: $G^Ω$ is transitive if every orbit contains all of $Ω$; for every pair $α, β$ there is $g$ such that $α^g = β$. (This is almost $1$-transitive, except that $G^\varnothing$ is considered transitive.)
+
+* Theorems
+
+** Miscellany
+
+- *First isomorphism theorem* if $φ:G → H$ is a homomorphism, then $K = \ker(φ) ⊴ G$ and the map $Kg \mapsto φ(g)$ is an isomorphism $G/K → \im(φ)$.
+- *Second isomorphism theorem* if $H ≤ G$ and $K ⊴ G$ then $\frac{H}{H \cap K} ≈ \frac{HK}{K}$.
+- *Third isomorphism theorem* if $N ⊴ K ⊴ G$ and further $N ⊴ G$, then $\frac KN ⊴ \frac GN$ and $\frac{G/N}{K/N} ≅ G/K$.
+- If $N ⊴ G$ then subgroups of $G/N$ are of the form $H/N$, where $N ≤ H ≤ G$.
+- *Orbit-stabilizer theorem* if $G$ is finite, then $|G| = |α^G||G_α|$.
+- If $G^Ω$ is $k$-transitive and $|Ω| = n$, then $|G| = n^{\underline k}|G_{α_1,…,α_k}|$ for any $k$-tuple of distinct elements.
+- Any transitive action of $G$ on a set $Ω$ is equivalent to a coset action of $G$ on $\{ (G_α)g : g ∈ G \}$.
+- Two permutations on a set are conjugate iff they have the same cycle type.
+- If $N ⊴ G$ then $N$ is a union of conjugacy classes of $G$ (i.e.\nbsp{}$x ∈ N ⇒ \Cl_G(x) ⊆ N$).
+- Let $P$ be a $p$-group and $N ⊴ P$ nontrivial. Then $N \cap \Z(P) ≠ 1$. In particular, $p$-groups have nontrivial centres.
+- Let $H, K ≤ G$. If either $H ⊴ G$ or $K ⊴ G$, then $HK ≤ G$. If both $H, K ⊴ G$, then $HK ⊴ G$.
+- If $H, K ⊴ G$, $HK = G$ and $H \cap K = 1$ then $G = H × G$.
+- If $K_1, … K_n ⊴ G$, $G = K_1…K_n$ and each $K_i \cap (K_1…K_{i-1}K_{i+1}…K_n) = 1$, then $G = \prod K_i$.
+
+** Sylow's theorem
+
+- If $p^β \mid |G|$, then $|\{ H ≤ G : |H|=p^β \}| ≡ 1 \bmod p$.
+- If $P ∈ \syl_p(G)$ and $Q$ is any $p$-subgroup of $G$, then $Q ⊆ \conj Pg$ for some $g ∈ G$.
+- *Sylow's theorem* follows from the above. Let $G$ be a group with $p \mid |G|$.
+  - Existence :: $\syl_p(G)$ is nonempty.
+  - Containment :: any $p$-subgroup is contained in some Sylow $p$-subgroup.
+  - Conjugacy :: if $P, Q ∈ \syl_p(G)$ then $∃ g ∈ G$ with $\conj Pg = Q$.
+  - Number :: $|\syl_p(G)| ≡ 1 \bmod p$.
+- *Corollaries* $p \mid |G|$, $k = |\syl_p(G)|$, $P ∈ \syl_p(G)$:
+  - $G$ has an element of order $p$.
+  - For some $Q ∈ \syl_p(G)$, $k = |G|/|\N_G(Q)|$. In particular, $k \mid |G|/|P|$.
+  - $k = 1$ iff $P ⊴ G$.
+  - If $\N_G(P) ≤ M ≤ G$, then $\N_G(M) = M$.
+  - If $N ⊴ G$ and $Q ∈ \syl_p(N)$, then $G = \N_G(P)N$.
+
+** Nilpotent and soluble groups
+
+- *Nilpotent groups* TFAE:
+  - $∀ p \mid |G|: |\syl_p(G)| = 1$.
+  - $∀ p \mid |G|: P ∈ \syl_p(G) ⇒ P ⊴ G$.
+  - $G = \prod \{ P : P ∈ \syl_p(G) \text{ for some } p \}$.
+  - $H < G ⇒ H < \N_G(H)$.
+  - All maximal subgroups of $G$ are normal in $G$.
+- If $G ≠ 1$ is nilpotent, then
+  - $Z(G) ≠ 1$.
+  - $H ≤ G ⇒ H$ is nilpotent.
+  - $N ⊴ G ⇒ G/N$ is nilpotent.
+- On $\comm GG$:
+  - $\comm GG ≤ G$.
+  - $G/\comm GG$ is abelian.
+  - If $N ⊴ G$ and $G/N$ abelian then $\comm GG ≤ N$.
+- *Characteristic subgroups*
+  - $N \chars G ⇒ N ⊴ G$.
+  - $N \chars K ⊴ G ⇒ N \chars G$.
+  - $N \chars K \chars G ⇒ N \chars G$.
+  - $\comm GG \chars G$.
+  - $\Z(G) \chars G$.
+  - $P ∈ \syl_p(G), P ⊴ G ⇒ P \chars G$.
+- *Soluble groups* TFAE:
+  - $G^{(n)} = 1$ for some $n$.
+  - $G$ has a subnormal series with abelian factor groups.
+  - $G$ has a normal series with abelian factor groups.
+- If $N ⊴ G$, then $\left(\frac{G}{N}\right)^{(k)} = \frac{G^{(k)}N}{N}$.
+- *Proving a group is soluble*
+  - If $G$ is soluble and $H ≤ G$ then $H$ is soluble.
+  - If $G$ is soluble and $N ⊴ G$ then $G/N$ is soluble.
+  - If $N$ and $G/N$ are soluble then $G$ is soluble.
+  - If $G$ is nilpotent, it is soluble.
+- Every finite group has a composition series, which is structurally unique: if $(A_i)$ and $(B_i)$ are two composition series, then after permutation, the factors $A_i / A_{i+1} ≅ B_i / B_{i+1}$.
+- A group is soluble iff its composition factors are all cyclic groups of prime order.
+
+** Permutation groups
+
+- If $B$ is a block, then every $B^g$ is a block.
+- If $G^Ω$ is transitive and $B$ is a block, then $|B| \mid |Ω|$.
+- If $G^Ω$ is $2$-transitive, it is primitive.
+- If $G^Ω$ and $H^Ω$ are transitive and $G_α ≤ H ≤ G$, then $H = G$.
+- Let $G^Ω$ be transitive, $|Ω| > 1$. Then $G^Ω$ is primitive iff every $G_α$ is a maximal subgroup of $G$.
+- Let $G^Ω$ be transitive, $N ⊴ G$ and $α ∈ Ω$. One of the following holds:
+  - $α^N = \set{α}$ and $N^Ω = 1$
+  - $α^N = Ω$ and $N^Ω$ is transitive
+  - $α^N$ is a block of $G^Ω$.
+- For $n ≥ 5$, $A_n$ has no regular normal subgroup (under the permutation action).
+- For $n ≥ 5$, $A_n$ is simple and is the only nontrivial normal subgroup of $S_n$.
+
+** Matrix groups
+
+Choose a field $K$ and $n ∈ ℕ^+$. Let $Ω$ be the set of $1$-subspaces of $K^n$, $Ω = \set{ ⟨v⟩ : 0 ≠ v ∈ K^n }$. We define four matrix groups:
+- $\gl(n,K)$: :: invertible $n×n$ matrices over $K$, acting on $Ω$ by $⟨v⟩^g = ⟨vg⟩$, the projective action.
+- $\gsl(n,K)$ :: $= \set{ g ∈ \gl(n,K) : \det g = 1 }$.
+- $\pgl(n,K)$ :: $= \frac{\gl(n,K)}{\Z(\gl(n,K))} ≅ \gl(n,K)^Ω$.
+- $\psl(n,K)$ :: $= \gsl(n,K)^Ω$.
+
+When $K$ is finite of order $q$ (which is necessarily a prime power), we also denote these groups by $\gl(n,q)$, etc.
+
+- $\gl(n,K)^Ω$ is $2$-transitive.
+- $\ker(\gl(n,K)^Ω) = \Z(\gl(n,K)) = \set{ λI_n : λ ∈ K^* }$
+- $|\gl(n,q)| = \prod_{i=0}^n(q^n - q^i)$; $|\gsl(n,q)| = |\pgl(n,q)| = \frac{|\gl(n,q)|}{q-1}$; $|\pgl(n,q)| = \frac{|\gsl(n,q)|}{\gcd(n,q)}$
+- $\psl(n,K)$ is simple, except for $\psl(2,2)$ and $\psl(2,3)$. Proof involves:
+  - $\gsl(n,K)$ is $2$-transitive on $Ω$.
+  - $\gsl(n,K)$ is generated by transvections. These are matrices conjugate in $\gl(n,K)$ to the matrix $T$ with 1s on the diagonal and in the $(2,1)$ position and 0s everywhere else. In fact any matrix with 1s on the diagonal and a single other nonzero element is a transvection; and if $n=1$, we consider $(1)$ to be a tranvection.
+  - $\gsl(n,K)$ is perfect, except $\sl(2,2)$ and $\sl(2,3)$.
+  - Lemma: Let $G$ be perfect, $G^Ω$ primitive. Suppose for some $α ∈ Ω$ there is $M ⊴ G_α$ such that $G = ⟨ \conj Mg : g ∈ G⟩$. Then $G^Ω$ is simple.
+  - Choose $α$ to be the first standard basis vector, and $M$ to be matrices with 1s on the diagonal, arbitrary elements in the first column (except $(1,1)$), and 0s everywhere else. Then the lemma applies.
+
+** The transfer homomorphism
+
+Let $H ≤ G$, $[ G:H ] = r$, and $Ω = \set{ Hg_1, …, Hg_r }$ where $g_1 = 1$. $G$ acts on $Ω$ by right multiplication.
+
+For $1 ≤ i ≤ r$ and $g ∈ G$, let $i^g$ be such that $(Hg_i)g = Hg_{i^g}$. Then we can define $r$ functions (not homomorphisms) $h_i : G → H$ satisfying $g_i g = h_i(g) g_{i^g}$.
+
+We define the transfer homomorphism $T : G → \frac{H}{\comm HH}$ by $T(g) = \comm HH \prod_{i=1}^r h_i(g)$.
+
+- $T$ is a homomorphism.
+- Let the lengths of the cycles of $g^Ω$ be $r_1, …, r_s$. Let $i_j = \sum_{m=0}^{j-1} r_m$. Then each $g_{i_j} g^{r_j} g_{i_j}^{-1} ∈ H$, and $T(g) = \comm HH \prod_{j=1}^s g_{i_j} g^{r_j} g_{i_j}^{-1}$.
+- If $G$ is finite abelian and $r ∈ ℤ$ with $\gcd(r, |G|) = 1$, then the map $φ: G→G: g \mapsto g^r$ is an automorphism of $G$.
+- If $P ∈ \syl_p(G)$ is abelian and $g,h ∈ P$ are conjugate in $G$, then they are conjugate in $\N_G(P)$.
+- *Burnside's transfer theorem* $G$ a finite group, $P ∈ \syl_p(G)$, and $P ≤ \Z(\N_G(P))$. Then $G$ has a normal subgroup $N$ with $P ∩ N = 1$ and $PN = G$. In particular, $G$ can only be simple if $G = P$.
+- Corollary: no group of twice-odd order is simple (except $C_2$).
+
+** Classification of groups
+
+- If $|G| = p$ then $G ≅ C_p$.
+- If $|G| = 2p$ where $p$ is an odd prime, then $G ≅ C_{2p}$ or $G ≅ D_{2p}$.
+- If $|G| = p^2$ then $G ≅ C_{p^2}$ or $G ≅ C_p × C_p$.
+- If $|G| = p^n$ then $Z(G) ≠ 1$ so $G$ is not simple.
+- Let $G$ be finite simple nonabelian.
+  - If $G$ acts on $Ω$ with $G^Ω ≠ 1$, then $G^Ω$ is faithful, $G ≤ \operatorname{Alt}(Ω)$ and $|Ω| ≥ 5$.
+  - If $H < G$, let $n = [G:H] > 1$. Then $G ≤ A_n$ and $n ≥ 5$.
+  - If $\syl_p(G) = n > 1$ for some $p$, then $G ≤ A_n$ and $n ≥ 5$.
+- All finite simple groups of orders 60, 168, 360 are isomorphic. (360 nonexaminable.)
+- The only finite simple nonabelian groups of order $≤ 500$ are those of order 60, 168, 360.
+  - Most orders can be done simply by above theorems. Orders 264, 288, 336, 420, 432 and 480 are harder.

@@ -1,0 +1,4 @@
+This contains glossaries (notation, definitions, theorems) for modules that I'm
+taking this year. It's mainly for my own revision, but potentially could be
+useful to others. No proofs are provided. The master format is org-mode, but
+intended for LaTeX/pdf export and printing.
