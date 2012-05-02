@@ -1,0 +1,69 @@
+% When using greek input like α it apparently tries to use the command
+% \textalpha, which doesn't exist. So I redefine all such commands.  One problem
+% is that some packages do define some commands (e.g. hyperref defines \textbeta
+% and \textmu), in which case I need to \renew instead. Possibly this will break
+% such pacakages; what I probably need to set them to be is commands which work
+% in either math or text mode.
+
+\newcommand{\addgreek}[2]{\ifdefined#1
+  \renewcommand{#1}{#2}
+\else
+  \newcommand{#1}{#2}
+\fi
+}
+
+% I use \varphi and \varepsilon because I like them better, because the font I
+% use displays those variants, and to save typing when I have to use whichever
+% one isn't used here.
+
+\addgreek{\textalpha}{\alpha}
+\addgreek{\textAlpha}{\Alpha}
+\addgreek{\textbeta}{\beta}
+\addgreek{\textBeta}{\Beta}
+\addgreek{\textgamma}{\gamma}
+\addgreek{\textGamma}{\Gamma}
+\addgreek{\textdelta}{\delta}
+\addgreek{\textDelta}{\Delta}
+\addgreek{\textepsilon}{\varepsilon}
+\addgreek{\textEpsilon}{\Epsilon}
+\addgreek{\textzeta}{\zeta}
+\addgreek{\textZeta}{\Zeta}
+\addgreek{\texteta}{\eta}
+\addgreek{\textEta}{\Eta}
+\addgreek{\texttheta}{\theta}
+\addgreek{\textTheta}{\Theta}
+\addgreek{\textiota}{\iota}
+\addgreek{\textIota}{\Iota}
+\addgreek{\textkappa}{\kappa}
+\addgreek{\textKappa}{\Kappa}
+\addgreek{\textlambda}{\lambda}
+\addgreek{\textLambda}{\Lambda}
+\addgreek{\textmu}{\mu}
+\addgreek{\textMu}{\Mu}
+\addgreek{\textnu}{\nu}
+\addgreek{\textNu}{\Nu}
+\addgreek{\textxi}{\xi}
+\addgreek{\textXi}{\Xi}
+\addgreek{\textomicron}{\omicron}
+\addgreek{\textOmicron}{\Omicron}
+\addgreek{\textpi}{\pi}
+\addgreek{\textPi}{\Pi}
+\addgreek{\textrho}{\rho}
+\addgreek{\textRho}{\Rho}
+\addgreek{\textsigma}{\sigma}
+\addgreek{\textSigma}{\Sigma}
+\addgreek{\texttau}{\tau}
+\addgreek{\textTau}{\Tau}
+\addgreek{\textupsilon}{\upsilon}
+\addgreek{\textUpsilon}{\Upsilon}
+\addgreek{\textphi}{\varphi}
+\addgreek{\textPhi}{\Phi}
+\addgreek{\textchi}{\chi}
+\addgreek{\textChi}{\Chi}
+\addgreek{\textpsi}{\psi}
+\addgreek{\textPsi}{\Psi}
+\addgreek{\textomega}{\omega}
+\addgreek{\textOmega}{\Omega}
+
+% ℂ appears to use this.
+\newcommand{\mathbbm}{\mathbb}
