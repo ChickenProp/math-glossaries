@@ -78,7 +78,7 @@
 
 - Remainder theorem :: If $f ∈ K[X]$ and $α ∈ K$, then $(X - α)|f$ iff $f(α) = 0$.
 - Gauss' lemma :: If $f ∈ R[X]$ is nonconstant primitive and irreducible over $R$, then it is irreducible over $\ffrac(R)$.
-- Reduction :: Suppose $f ∈ R[X]$ is primitive, $p ∈ R$ is irreducible and $(f \mod p)$ is irreducible in $(R/(p))[X]$. Then $f$ is irreducible in $R[X]$.
+- Reduction :: Suppose $f ∈ R[X]$ is primitive, $p ∈ R$ is irreducible and $(f \bmod p)$ is irreducible in $(R/(p))[X]$. Then $f$ is irreducible in $R[X]$.
 - Eisenstein's criterion :: Suppose $f ∈ R[X]$ primitive and $∃p ∈ R$ irreducible such that: $p \nmid a_n$; $p \mid a_i$ for $0 ≤ i < n$; $p \mid a_0^2$. Then $f$ is irreducible over $R$ and $\ffrac(R)$.
 
 ** Field extensions
@@ -98,7 +98,7 @@
 - $L/N/M/K$ field extensions with $N/M$ finite. Then $[ \aut(L/M) : \aut(L/N) ] ≤ [ N : M ]$.
 - Corollary: $L/K$ finite $⇒ |\aut(L/K)| ≤ [ L : K ]$.
 - If $H ≤ G ≤ \aut(L/K)$ then $[L^H : L^G] ≤ [ G : H ]$.
-- Special case: if $H$ is trivial we have $[L:L^G ≤ |G|$.
+- Special case: if $H$ is trivial we have $[L:L^G] ≤ |G|$.
 - Corollary: $[L : L^{\aut(L/K)}] ≤ |\aut(L/K)| ≤ [L:K]$.
 - If $L/K$ is finite then it is Galois iff $|\aut(L/K)| = [L:K]$.
 - Special case: if $L = K(α)$ with $[L:K]=n$, then $L/K$ is Galois iff $f_α^K$ has precisely $n$ distinct roots in $L$.

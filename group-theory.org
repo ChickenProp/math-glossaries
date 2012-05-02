@@ -77,7 +77,7 @@
 - Primitive :: $G^Ω$ is primitive if it is transitive and has no blocks; imprimitive if it is transitive and has blocks.
 - Regular normal subgroup :: when $G^Ω$ is specified, a regular normal subgroup is $N ⊴ G$ such that $N^Ω$ is regular.
 - Right-regular action :: $G$ acts on itself by $x^g = xg$. Transitive and faithful.
-- Semidirect product :: if $H ≤ G$, $K ⊴ G$, $HK = G$ and $H \cap K = 1$, then $G = H ⋉ K = K ⋊ H$. If $φ$ is an action of $H$ on $K$, then $H ⋉_φ K = K ⋉_φ H$ is the group $\{ (h,k) : h ∈ H, k ∈ K \}$ with multiplication $(h_1,k_1)(h_2,k_2) = (h_1h_2, k_1^{h_2}k_2)$. If $φ$ is the conjugation action $k^h = \conj kh$, this just gives us $G$, but we can use this to define products of any two groups.
+- Semidirect product :: if $H ≤ G$, $K ⊴ G$, $HK = G$ and $H \cap K = 1$, then $G = H ⋉ K = K ⋊ H$. If $φ$ is an action of $H$ on $K$, then $H ⋉_φ K = K ⋊_φ H$ is the group $\{ (h,k) : h ∈ H, k ∈ K \}$ with multiplication $(h_1,k_1)(h_2,k_2) = (h_1h_2, k_1^{h_2}k_2)$. If $φ$ is the conjugation action $k^h = \conj kh$, this just gives us $G$, but we can use this to define products of any two groups.
 - Series :: A sequence $G = G_0 ≥ G_1 ≥ … ≥ G_n = 1$. May be *normal* if each $G_i ⊴ G$; or *subnormal* if each $G_i ⊴ G_{i-1}$; or a *composition series* if it is subnormal and each factor group $G_i / G_{i+1}$ is simple. The *derived series* has $G_i = G^{(i)} = \comm{G^{(i-1)}}{G^{(i-1)}}$, and need not terminate at $1$.
 - Simple :: A simple group has no normal subgroups except itself and $1$. ($1$ does not count as simple, analogously to primes.)
 - Soluble :: $G$ is soluble if it has a finite subnormal series with each factor group abelian.
@@ -113,7 +113,7 @@
   - Number :: $|\syl_p(G)| ≡ 1 \bmod p$.
 - *Corollaries* $p \mid |G|$, $k = |\syl_p(G)|$, $P ∈ \syl_p(G)$:
   - $G$ has an element of order $p$.
-  - For some $Q ∈ \syl_p(G)$, $k = |G|/|\N_G(Q)|$. In particular, $k \mid |G|/|P|$.
+  - $k = |G|/|\N_G(P)|$. In particular, $k \mid |G|/|P|$.
   - $k = 1$ iff $P ⊴ G$.
   - If $\N_G(P) ≤ M ≤ G$, then $\N_G(M) = M$.
   - If $N ⊴ G$ and $Q ∈ \syl_p(N)$, then $G = \N_G(P)N$.
@@ -136,7 +136,7 @@
   - If $N ⊴ G$ and $G/N$ abelian then $\comm GG ≤ N$.
 - *Characteristic subgroups*
   - $N \chars G ⇒ N ⊴ G$.
-  - $N \chars K ⊴ G ⇒ N \chars G$.
+  - $N \chars K ⊴ G ⇒ N ⊴ G$.
   - $N \chars K \chars G ⇒ N \chars G$.
   - $\comm GG \chars G$.
   - $\Z(G) \chars G$.
