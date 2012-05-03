@@ -1,0 +1,40 @@
+#+TITLE:     A Glossary of Rings and Modules
+#+AUTHOR:    Phil Hazelden
+#+EMAIL:     philip.hazelden@gmail.com
+#+DATE:      2012-02-04 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+LaTeX_HEADER:\usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+LaTeX_HEADER: \usepackage{stmaryrd}
+#+LaTeX_HEADER: \usepackage{hackgreek}
+#+LaTeX_HEADER: \DeclareMathOperator{\Z}{Z}
+#+LaTeX_HEADER: \DeclareMathOperator{\im}{im}
+#+LaTeX_HEADER: \DeclareMathOperator{\coker}{coker}
+#+LaTeX_HEADER: \newcommand{\set}[1]{ \left\{ #1 \right\} }
+
+* Notation
+
+* Definitions
+
+- Algebra :: If $R$ is a commutative ring, an $R$-algebra is a ring $A$ together with a structure map, a homomorphism $f : R → A$ such that $f(R) ⊂ \Z(A)$.
+- Cokernel :: If $f: M → N$ is an $R$-module homomorphism, $\coker(f) = N/\im(f)$.
+- Direct sum :: If $I$ is an index set and $M_i : i ∈ I$ are $R$-modules, then $\bigoplus_{i∈I}M_i = \set{(x_i) ∈ \prod M_i : \text{ all but finitely many } x_i = 0}$ is an $R$-module.
+- Group ring :: $R$ a ring and $G$ a group. $R[G]$ has elements $rg : r ∈ R, g ∈ G$ and multiplication $(rg)(sh) = (rs)(gh)$.
+- Ideal :: An ideal $I$ of $R$ is a subring which also has $ai, ia ∈ I$ for every $a ∈ R, i ∈ I$. $R/I$ is another ring.
+- Module :: A (left) $R$-module is an abelian group $M$ with an operator $R × M → M$ which distributes over $R$- and $M$-addition and is associative with $R$-multiplication, and $1⋅x = x ∀ X$. We can quotient a module by another module.
+- Product :: If $I$ is an index set and $M_i : i ∈ I$ are $R$-modules, $\prod_{i∈I}M_i$ is an $R$-module.
+- Representation :: $K$ a field, $G$ a group; a $K$-representation of $G$ is a $K$-vector space $V$ with multiplication $v \mapsto gv$ linear and $g(hv) = (gh)v$. Equivalent to a $K[G]$-module.
+- Ring :: We assume all rings have a $1$. A *division ring* has all elements except $0$ units (and the zero ring doesn't count); a *field* is a commutative division ring.
+- Tensor product :: Given $R$-modules $M,N$, their tensor product is an $R$-module $M ⊗_R N$ together with an $R$-bilinear map $b: M × N → M ⊗_R N$
+- Unit :: A unit of a ring is an element with both left and right inverses.
