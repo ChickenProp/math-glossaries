@@ -19,22 +19,161 @@
 #+LaTeX_HEADER: \usepackage{stmaryrd}
 #+LaTeX_HEADER: \usepackage{hackgreek}
 #+LaTeX_HEADER: \DeclareMathOperator{\Z}{Z}
+#+LaTeX_HEADER: \DeclareMathOperator{\J}{\mathcal{J}}
 #+LaTeX_HEADER: \DeclareMathOperator{\im}{im}
+#+LaTeX_HEADER: \DeclareMathOperator{\br}{Br}
+#+LaTeX_HEADER: \DeclareMathOperator{\ann}{Ann}
+#+LaTeX_HEADER: \DeclareMathOperator{\rend}{End}
 #+LaTeX_HEADER: \DeclareMathOperator{\coker}{coker}
+#+LaTeX_HEADER: \DeclareMathOperator{\fchar}{char}
+#+LaTeX_HEADER: \newcommand{\op}{\mathrm{op}}
 #+LaTeX_HEADER: \newcommand{\set}[1]{ \left\{ #1 \right\} }
 
 * Notation
 
+- $\ann(M)$ :: The annihilator of $M$, $\set{ r ∈ R : x ∈ M ⇒ rx = 0 }$. An ideal of $R$.
+- $\br(K)$ :: The Brauer group of $K$; the set of Brauer-equivalence classes of finite dimensional central simple $K$-algebras, with addition $[A] + [B] = [A ⊗ B]$, zero $0 = [K]$, and inverses $-[A] = [A^\op]$.
+- $\rend(R)$ :: The ring of homomorphisms $R→R$. $(f+g)(x) = f(x) + g(x)$, and $(f⋅g)(x) = f(g(x))$.
+- $\J(R)$ :: The Jacobson radical, $\bigcap_{m ⊂ R}m$ over maximal left ideals $m ⊂ R$.
+- $K$ :: A field.
+- $l(M)$ :: The length of $M$.
+- $M$ :: An $R$-module.
+- $N$ :: An $R$-module.
+- $R$ :: A ring.
+
 * Definitions
 
-- Algebra :: If $R$ is a commutative ring, an $R$-algebra is a ring $A$ together with a structure map, a homomorphism $f : R → A$ such that $f(R) ⊂ \Z(A)$.
+- Algebra :: If $R$ is a commutative ring, an $R$-algebra is a ring $A$ together with a structure map, a homomorphism $f : R → A$ such that $f(R) ⊂ \Z(A)$. An algebra is *central* if $f(R) = \Z(A)$.
+- Artinian :: A module is artinian if it satisfies the descending chain condition. A ring $R$ is (left) artinian if the (left) $R$-module $M=R$ is artinian.
+- Ascending chain condition :: an $R$-module $M$ satisfies the ACC if any chain $M_1 ⊂ M_2 ⊂ … ⊂ M$ has only finitely many distinct $M_i$.
+- Brauer-equivalent :: Finite dimensional central simple $K$-algebras $A,B$ are Brauer-equivalent if for some $n,m$ there is a $K$-algebra isomorphism $M_n(A) ≅ M_m(B)$.
 - Cokernel :: If $f: M → N$ is an $R$-module homomorphism, $\coker(f) = N/\im(f)$.
+- Composition series :: a chain $0 = M_0 ⊂ M_1 … ⊂ M_n = M$ such that each $M_i/M_{i-1}$ is simple. Two composition series $(M_i)_0^m, (N_i)_0^n$ are *equivalent* if $n=m$ and after permutation, the factors $N_i/N_{i-1} ≅ M_i/M_{i-1}$.
+- Descending chain condition :: an $R$-module $M_1$ satisfies the DCC if any chain $M_1 ⊂ M_2 ⊂ …$ is eventually constant.
 - Direct sum :: If $I$ is an index set and $M_i : i ∈ I$ are $R$-modules, then $\bigoplus_{i∈I}M_i = \set{(x_i) ∈ \prod M_i : \text{ all but finitely many } x_i = 0}$ is an $R$-module.
-- Group ring :: $R$ a ring and $G$ a group. $R[G]$ has elements $rg : r ∈ R, g ∈ G$ and multiplication $(rg)(sh) = (rs)(gh)$.
-- Ideal :: An ideal $I$ of $R$ is a subring which also has $ai, ia ∈ I$ for every $a ∈ R, i ∈ I$. $R/I$ is another ring.
+- Direct summand :: $N ⊂ M$ is a direct summand if there is $P ⊂ M$ such that $N ∩ P = 0$ and $N + P = M$.
+- Exact :: $M →_f N →_g P$ is exact (at $N$) if $\ker g = \im f$. A sequence $M_0 → M_1 → … → M_n$ is exact if each $M_{i-1} → M_i → M_{i+1}$ is exact at $M_i$.
+- Faithful :: A module $M$ is faithful if $\ann(M) = 0$.
+- Finite length :: a module has finite length if it has a composition series.
+- Group ring :: $R$ a ring and $G$ a group. $R[G] = \bigoplus_{g ∈ G}R[g]$, where $R[g] = \set{ r[g] : r ∈ R }$ and each $r[g]$ is a distinct symbol. Multiplication is $r[g]⋅s[h] = (rs)[gh]$. This is a linear combination of elements of $G$, with coefficients in $R$.
+- Ideal :: An ideal $I$ of $R$ is a subring which also has $ai, ia ∈ I$ for every $a ∈ R, i ∈ I$. $R/I$ is another ring. A left ideal is a submodule $I ⊂ R$ of the left module $R$.
+- Length :: $l(M)$ is the number of simple quotients in a composition series for $M$.
 - Module :: A (left) $R$-module is an abelian group $M$ with an operator $R × M → M$ which distributes over $R$- and $M$-addition and is associative with $R$-multiplication, and $1⋅x = x ∀ X$. We can quotient a module by another module.
+- Nilpotent :: An ideal $I$ is nilpotent if $I^n = 0$ for some $n$.
+- Noetherian :: A module is noetherian if it satisfies the ascending chain condition. A ring $R$ is (left) noetherian if the (left) $R$-module $M = R$ is noetherian.
+- Opposite ring :: $R^\op$ is a ring with the same group as $R$, but $(x⋅y)_{R^\op} = (y⋅x)_R$.
 - Product :: If $I$ is an index set and $M_i : i ∈ I$ are $R$-modules, $\prod_{i∈I}M_i$ is an $R$-module.
 - Representation :: $K$ a field, $G$ a group; a $K$-representation of $G$ is a $K$-vector space $V$ with multiplication $v \mapsto gv$ linear and $g(hv) = (gh)v$. Equivalent to a $K[G]$-module.
 - Ring :: We assume all rings have a $1$. A *division ring* has all elements except $0$ units (and the zero ring doesn't count); a *field* is a commutative division ring.
-- Tensor product :: Given $R$-modules $M,N$, their tensor product is an $R$-module $M ⊗_R N$ together with an $R$-bilinear map $b: M × N → M ⊗_R N$
+- Semi-simple :: A semi-simple $R$-module is one isomorphic to a (possibly infinite) direct sum of simple $R$-modules. $0$ is semi-simple. A semi-simple ring is one which is semi-simple as a left module over itself.
+- Simple :: A module is simple if its only submodules are itself and $0$. A ring is simple if its only ideals are $0$ and itself. $0$ is a not simple module or ring.
+- Tensor product :: Given $R$-modules $M,N$, their tensor product is an $R$-module $M ⊗_R N$ together with an $R$-bilinear map $b: M × N → M ⊗_R N$ satisfying: whenever $φ:M×N→P$ is bilinear, $∃!g:M⊗N→P$ linear such that $φ = g∘b$.
+                    \par Given $R$-algebras $A,B$, $A⊗B$ is an $R$-module which we make into a ring by extending $(a_1⊗b_1)⋅(a_2⊗b_2) = a_1a_2 ⊗ b_1b_2$ to all of $A⊗B × A⊗B$. We make this into an $R$-algebra by defining the structure map $r \mapsto r(1⊗1)$.
 - Unit :: A unit of a ring is an element with both left and right inverses.
+
+* Theorems
+
+** Tensor product
+
+- Construction of the tensor product :: Given $R$-modules $M,N$, define $F = \bigoplus_{M×N}R[x,y]$. Let $S$ contain all the elements $[ax + by, u] - a[x,u] - b[y,u]$ and $[x, au + bv] - a[x,u] - b[x,v]$, for $a, b ∈ R,\, x,y ∈ M,\, u,v ∈ N$. Then $⟨S⟩$ is the submodule containing finite linear combinations of elements of $S$. We define $M ⊗ N = F/⟨S⟩$, and $x,y \mapsto x ⊗ y = [x,y] \bmod ⟨S⟩$. Any tensor product is isomorphic to $M ⊗ N$. Given $φ:M×N→P$, define $g:M⊗N→P$ by $g(\sum_{M×N}a_{x,y}(x⊗y)) = \sum_{M×N}a_{x,y}φ(x,y)$, so that $φ(x,y) = g(x⊗y)$.
+- Properties of the tensor product :: \hfill
+  - If $f:M_1→M_2$ and $g:N_1→N_2$ are linear, then $∃!f⊗g: M_1⊗N_1 → M_2⊗N_2: x⊗y \mapsto f(x) ⊗ g(y)$. Moreover, $(f_1 ⊗ g_1)∘(f_2 ⊗ g_2) = (f_1 ∘ f_2) ⊗ (g_1 ∘ g_2)$.
+  - For any $R$-module $M$, there is an isomorphism $R ⊗_R M → M : a⊗x \mapsto ax$.
+  - There is an isomorphism $M⊗N → N⊗M : x⊗y \mapsto y⊗x$.
+  - There is an isomorphism $(M_1⊕M_2)⊗N → (M_1⊗N)⊕(M_2⊗N) : (x_1,x_2)⊗y \mapsto x_1⊗y, x_2⊗y$.
+  - If $M →_f N →_g P → 0$ is exact, then $M ⊗ Q →_{f⊗1_Q} N ⊗ Q →_{g⊗1_Q} P ⊗ Q → 0$ is also exact. Equivalently, $M ⊗ \coker(f) ≅ \coker(1_M ⊗ f)$.
+
+** Chain conditions
+
+- Every finite dimensional $K$-vector space is artinian and noetherian.
+- $M$ is noetherian iff all submodules of $M$ are finitely generated.
+- If $N ⊂ M$ then $M$ is (noetherian, artinian) iff $N$ and $M/N$ are.
+- If $M$ and $N$ are (noetherian, artinian) then so is $M⊕N$.
+- If $R$ is (noetherian, artinian) then an $R$-module $M$ is the same iff $M$ is finitely generated.
+- If $R$ is noetherian, then so is $R[T]$.
+
+** Simple and semi-simple modules
+
+- A module is simple iff every $0 ≠ x ∈ M$ generates $M$.
+- $M$ is a simple $R$-module iff $M = R/N$ where $N$ is a maximal submodule.
+- If $A$ is a division ring, $R = M_n(A)$ and $M = A^n$, then $M$ is a simple $R$-module.
+- A module has finite length iff it is artinian and noetherian.
+- *Jordan-Hölder* Any two composition series for a module are equivalent.
+- *Zorn's lemma* If $P$ admits a partial order in which every chain has an upper bound, then $P$ has a maximal element.
+- If $M = \sum_{i∈I}M_i$, there is $J ⊂ I$ such that $M = \bigoplus_{j∈J}M_j$.
+- Let $N ⊂ M$ be a submodule and $g:M → M/N$ the quotient map. If there is $s:M/N → M$ so that $gs = 1_{M/N}$, then $N$ is a direct summand of $M$ and $N ≅ \coker(s)$.
+- If $N ⊂ M$ and $M$ is semi-simple, then so are $N$ and $M/N$, and $N$ is a direct summand of $M$.
+- If $M$ is semi-simple of finite length, with decomposition $M = \bigoplus_{i=1}^kE_i^{n_i}$, then $\rend(M) = \prod_{i=1}^kM_{n_i}(\rend(E_i))$ and each $\rend(E_i)$ is a division ring.
+
+** Structure theorems
+
+- If $R$ is semi-simple, then
+  - $R$ is artinian and noetherian
+  - Every $R$-module is semi-simple
+  - If $R = \bigoplus_{i=1}^k E_i^{n_i}$ with each $E_i$ simple, then this decomposition is uniquely determined by $R$.
+  - $\rend(R)$ is a finite product of matrix rings over division rings.
+- *Properties of* $R^\op$
+  - For any $n$, $R^\op ≅ \rend_{M_n(R)}(R^n)$ through $x \mapsto (a \mapsto ax)$.
+  - $(R_1 × … × R_n)^\op = R_1^\op × … × R_n^\op$
+  - $M_n(R)^\op ≅ M_n(R^\op)$
+- *Wedderburn structure theorem* A ring is semi-simple iff it is a finite product of matrix rings over division rings.
+- If $R$ is a finite dimensional division algebra over an algebraically closed field $K$, then $R = K$.
+- If $R$ is a finite dimensional semi-simple algebra over an algebraically closed field $K$, then $R$ is of the form $R = \prod_{i=1}^kM_{n_i}(K)$.
+- If $R$ is a ring, then every ideal of $M_n(R)$ is of the form $M_n(J)$, where $J ⊂ R$ is an ideal.
+- *Structure theorem for artinian simple rings* TFAE:
+  - $R$ is simple artinian
+  - $R$ is artinian and has a faithful simple $R$-module
+  - $R$ is semi-simple and any two simple $R$-modules are isomorphic
+  - $R ≅ M_n(A)$ for some division ring $A$.
+- Corollary: a ring is semi-simple iff it is a finite product of artinian simple rings.
+
+** Jacobson radical
+
+- Every nonzero ring has a maximal left ideal.
+- $\J(R) = \bigcap_{M}\ann_R(M)$ over simple $R$-modules $M$. In particular, $J$ is an ideal.
+- For $x ∈ R$, we have $x ∈ \J(R)$ iff $∀a∈R: 1+ax$ has a left inverse.
+- $\J(R×S) = \J(R) × \J(S)$.
+- If $I$ is an ideal and $I^n = 0$ for some $n$, then $I ⊂ \J(R)$.
+- If $R$ is artinian then $\J(R)$ is nilpotent.
+- If $R$ is artinian then there are $I_1,…,I_n$ maximal left ideals such that $\J(R) = \bigcap I_n$.
+- *Artin-Wedderburn structure theorem* TFAE:
+  - $R$ is semi-simple.
+  - $R$ is artinian and $\J(R) = 0$.
+  - $R$ is artinian and $R$ has non nonzero nilpotent ideal.
+  - $R ≅ \prod_{i=1}^k M_{n_i}(R_i)$ where $R_i$ are division rings.
+- $\J(R/\J(R)) = 0$.
+- If $R$ is artinian, it is noetherian. (Not true for modules.)
+- $G$ a finite group, $K$ a field, $\fchar(K) \nmid |G|$. Then $K[G]$ is semi-simple.
+
+** Central simple algebras and the Brauer group
+
+- If $D$ is a division ring then $\Z(M_n(D))$ is a field. In particular, the centre of a simple artinian ring is a field.
+- *Universal property of tensor product of algebras* If $g_A:A→C$ and $g_B:B→C$ are $R$-algebra homomorphisms which commute, then there is a unique $R$-algebra homomorphism $g:A⊗B → C$ such that $g(a⊗1) = g_A(a)$ and $g(1⊗b) = g_B(b)$.
+- If $A, B$ are $R$-algebras and $A$ is commutative, then $A ⊗_R B$ is an $A$-algebra with structure map $a \mapsto a⊗1$. (If $A = B$ there are two possible structure maps, $a \mapsto a⊗1$ and $a \mapsto 1⊗a$, and these do not agree in general.)
+- If $A' ⊂ A$ and $B' ⊂ B$ are finite dimensional $K$-algebras, then $\Z_{A⊗B}(A'⊗B') = \Z_A(A')⊗\Z_B(B')$.
+- If $A,B$ are finite dimensional central $K$-algebras, $A⊗B$ is a central $K$-algebra.
+- If $A,B$ are finite dimensional simple $K$-algebras and $A$ is also central, then $A⊗B$ is simple.
+- If $A$ is an $n$-dimensional central simple $K$-algebra, then there is a $K$-algebra isomorphism $A ⊗ A^\op ≅ M_n(K)$.
+- If $A, B$ are finite dimensional division $K$-algebras and are Brauer-equivalent, then $A ≅ B$.
+- Corollary: every Brauer-equivalence class has a unique rerpsentative which is a finite dimensional central simple division algebra.
+- If $A$ is a finite dimensional simple $K$-algebra, $M,N$ are finitely generated $A$-modules and $\dim_K(M) = \dim_K(N)$ then $M ≅ N$ as $A$-modules.
+- *Skolem-Noether* Let $K$ be a field, $A$ a finite dimensional central simple $K$-algebra, and $B_0, B_1$ simple subalgebras. Then any $K$-algebra isomorphism $B_0 → B_1$ extends to an inner $K$-algebra automorphism $(x \mapsto a^{-1}xa)$ of $A$, for some $a ∈ A$.
+- If $B ⊂ A$ are $K$-algebras, consider $A$ as a $B ⊗ A^\op$-module through the multiplication $(b⊗a)⋅t = bta$. Then $\Z_A(B) ≅ \rend_{B⊗A^\op}(A)$ as $K$-algebras.
+- $B ⊂ A$ finite dimensional simple $K$-algebras, and $A$ central. Then
+  - $\Z_A(B)$ is simple.
+  - $\dim_K(A) = \dim_K(B)\dim_K(\Z_A(B))$.
+  - $\Z_A(\Z_A(B)) = B$, and $\Z(\Z_A(B)) = \Z(B)$.
+- If $B ⊂ A$ are finite dimensional central simple $K$-algebras, there is an isomorphism of $K$-algebras $B⊗\Z_A(B)→A: b⊗t \mapsto bt$.
+- $A$ a finite dimensional central division algebra over $K$ and $L ⊂ A$ a maximal subfield. Then for some $n$,
+  - $\Z_A(L) = L$.
+  - $A ⊗_K L ≅ M_n(L)$ as $L$-algebras.
+  - $\dim_K(A) = n^2$.
+  - $\dim_K(L) = n$.
+- *Wedderburn* Every finite division ring is commutative.
+  - Proof uses: if $G$ is a finite group and $H < G$, then $G ≠ \bigcup_{g∈G}g^{-1}Hg$.
+- Corollaries:
+  - $\br(𝔽_q) = \set{[𝔽_q]}$ is the trivial group.
+  - If $R$ is a finite semi-simple ring, then $R ≅ \prod_{i=1}^k M_{n_i}(K_i)$ where the $K_i$ are finite fields.
+  - If $G$ is a finite group and $F$ a finite field with $\fchar(F) \nmid |G|$, then $F[G] ≅ \prod_{i=1}^k M_{n_i}(K_i)$ where the $K_i$ are finite fields.
+- *Frobenius* The only finite dimensional division algebras over $ℝ$ are $ℝ$, $ℂ$ and $ℍ$.
+- Corollary: $\br(ℝ) = \set{[ℝ], [ℍ]} ≅ C_2$.
