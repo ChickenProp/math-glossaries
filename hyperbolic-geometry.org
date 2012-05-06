@@ -1,0 +1,38 @@
+#+TITLE:     A Glossary of Hyperbolic Geometry
+#+AUTHOR:    Phil Hazelden
+#+EMAIL:     philip.hazelden@gmail.com
+#+DATE:      2012-02-04 Sat
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+LaTeX_HEADER:\usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+LaTeX_HEADER: \usepackage{stmaryrd}
+#+LaTeX_HEADER: \usepackage{hackgreek}
+
+* Definitions
+
+- Fuchsian group :: A discrete group of orientation preserving isometries of $ℍ$. Called /of the first kind/ if its limit set is $∂ℍ$, and /of the second kind/ otherwise.
+- Limit set :: The limit set of a fuchsian group $G$ is the closure (under the Euclidean topology on $∂ℍ$) of the set of non-elliptic fixed points of elements of $G$.
+
+* Theorems
+
+** Limit sets
+
+- If $G$ is fuchsian with limit set $Λ$, then
+  - $Λ$ is closed and $G$-invariant.
+  - $|Λ| ≤ 2$ iff $G$ is elementary. Otherwise $|Λ| = ∞$.
+  - Every $G$-orbit is dense in $Λ$ (i.e.\nbsp{}$Λ$ is minimal in the sense that it has no proper closed $G$-invariant subsets).
+  - If $G$ is non-elementary, then $Λ$ is uncountable, closed and has no isolated points.
+  - If $G$ is of the second kind, $Λ$ is nowhere dense in $∂𝔻$.
+  - For any $x ∈ \overline{𝔻}$, $Λ$ is the set of accumulation points of $G⋅x$.
+- Corollary: if $G$ is of the second kind, its limit set is homeomorphic to the Cantor set.
