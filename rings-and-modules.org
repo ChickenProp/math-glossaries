@@ -147,24 +147,26 @@
 
 ** Central simple algebras and the Brauer group
 
+Abbreviations: FD "finite dimensional", C "central", S "simple".
+
 - If $D$ is a division ring then $\Z(M_n(D))$ is a field. In particular, the centre of a simple artinian ring is a field.
 - *Universal property of tensor product of algebras* If $g_A:A→C$ and $g_B:B→C$ are $R$-algebra homomorphisms which commute, then there is a unique $R$-algebra homomorphism $g:A⊗B → C$ such that $g(a⊗1) = g_A(a)$ and $g(1⊗b) = g_B(b)$.
 - If $A, B$ are $R$-algebras and $A$ is commutative, then $A ⊗_R B$ is an $A$-algebra with structure map $a \mapsto a⊗1$. (If $A = B$ there are two possible structure maps, $a \mapsto a⊗1$ and $a \mapsto 1⊗a$, and these do not agree in general.)
-- If $A' ⊂ A$ and $B' ⊂ B$ are finite dimensional $K$-algebras, then $\Z_{A⊗B}(A'⊗B') = \Z_A(A')⊗\Z_B(B')$.
-- If $A,B$ are finite dimensional central $K$-algebras, $A⊗B$ is a central $K$-algebra.
-- If $A,B$ are finite dimensional simple $K$-algebras and $A$ is also central, then $A⊗B$ is simple.
+- If $A' ⊂ A$ and $B' ⊂ B$ are FD $K$-algebras, then $\Z_{A⊗B}(A'⊗B') = \Z_A(A')⊗\Z_B(B')$.
+- If $A,B$ are FDC $K$-algebras, $A⊗B$ is a central $K$-algebra.
+- If $A,B$ are FDS $K$-algebras and $A$ is also central, then $A⊗B$ is simple.
 - If $A$ is an $n$-dimensional central simple $K$-algebra, then there is a $K$-algebra isomorphism $A ⊗ A^\op ≅ M_n(K)$.
-- If $A, B$ are finite dimensional division $K$-algebras and are Brauer-equivalent, then $A ≅ B$.
-- Corollary: every Brauer-equivalence class has a unique rerpsentative which is a finite dimensional central simple division algebra.
-- If $A$ is a finite dimensional simple $K$-algebra, $M,N$ are finitely generated $A$-modules and $\dim_K(M) = \dim_K(N)$ then $M ≅ N$ as $A$-modules.
-- *Skolem-Noether* Let $K$ be a field, $A$ a finite dimensional central simple $K$-algebra, and $B_0, B_1$ simple subalgebras. Then any $K$-algebra isomorphism $B_0 → B_1$ extends to an inner $K$-algebra automorphism $(x \mapsto a^{-1}xa)$ of $A$, for some $a ∈ A$.
+- If $A, B$ are FD division $K$-algebras and are Brauer-equivalent, then $A ≅ B$.
+- Corollary: every Brauer-equivalence class has a unique rerpsentative which is a FDCS division algebra.
+- If $A$ is an FDS $K$-algebra, $M,N$ are finitely generated $A$-modules and $\dim_K(M) = \dim_K(N)$ then $M ≅ N$ as $A$-modules.
+- *Skolem-Noether* Let $K$ be a field, $A$ an FDCS $K$-algebra, and $B_0, B_1$ simple subalgebras. Then any $K$-algebra isomorphism $B_0 → B_1$ extends to an inner $K$-algebra automorphism $(x \mapsto a^{-1}xa)$ of $A$, for some $a ∈ A$.
 - If $B ⊂ A$ are $K$-algebras, consider $A$ as a $B ⊗ A^\op$-module through the multiplication $(b⊗a)⋅t = bta$. Then $\Z_A(B) ≅ \rend_{B⊗A^\op}(A)$ as $K$-algebras.
-- $B ⊂ A$ finite dimensional simple $K$-algebras, and $A$ central. Then
+- $B ⊂ A$ FDS $K$-algebras, and $A$ central. Then
   - $\Z_A(B)$ is simple.
   - $\dim_K(A) = \dim_K(B)\dim_K(\Z_A(B))$.
   - $\Z_A(\Z_A(B)) = B$, and $\Z(\Z_A(B)) = \Z(B)$.
-- If $B ⊂ A$ are finite dimensional central simple $K$-algebras, there is an isomorphism of $K$-algebras $B⊗\Z_A(B)→A: b⊗t \mapsto bt$.
-- $A$ a finite dimensional central division algebra over $K$ and $L ⊂ A$ a maximal subfield. Then for some $n$,
+- If $B ⊂ A$ are FDCS $K$-algebras, there is an isomorphism of $K$-algebras $B⊗\Z_A(B)→A: b⊗t \mapsto bt$.
+- $A$ an FDC division algebra over $K$ and $L ⊂ A$ a maximal subfield. Then for some $n$,
   - $\Z_A(L) = L$.
   - $A ⊗_K L ≅ M_n(L)$ as $L$-algebras.
   - $\dim_K(A) = n^2$.
@@ -175,5 +177,5 @@
   - $\br(𝔽_q) = \set{[𝔽_q]}$ is the trivial group.
   - If $R$ is a finite semi-simple ring, then $R ≅ \prod_{i=1}^k M_{n_i}(K_i)$ where the $K_i$ are finite fields.
   - If $G$ is a finite group and $F$ a finite field with $\fchar(F) \nmid |G|$, then $F[G] ≅ \prod_{i=1}^k M_{n_i}(K_i)$ where the $K_i$ are finite fields.
-- *Frobenius* The only finite dimensional division algebras over $ℝ$ are $ℝ$, $ℂ$ and $ℍ$.
+- *Frobenius* The only FD division algebras over $ℝ$ are $ℝ$, $ℂ$ and $ℍ$.
 - Corollary: $\br(ℝ) = \set{[ℝ], [ℍ]} ≅ C_2$.
