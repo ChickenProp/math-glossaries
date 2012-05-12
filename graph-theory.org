@@ -1,0 +1,226 @@
+#+TITLE:     A Glossary of Graph Theory
+#+AUTHOR:    Phil Hazelden
+#+EMAIL:     philip.hazelden@gmail.com
+#+DATE:      %Y-%m-%d
+#+DESCRIPTION:
+#+KEYWORDS:
+#+LANGUAGE:  en
+#+OPTIONS:   H:3 num:t toc:nil \n:nil @:t ::t |:t ^:t -:t f:t *:t <:t
+#+OPTIONS:   TeX:t LaTeX:t skip:nil d:nil todo:t pri:nil tags:not-in-toc
+#+INFOJS_OPT: view:nil toc:nil ltoc:t mouse:underline buttons:0 path:http://orgmode.org/org-info.js
+#+EXPORT_SELECT_TAGS: export
+#+EXPORT_EXCLUDE_TAGS: noexport
+#+LINK_UP:   
+#+LINK_HOME: 
+#+XSLT:
+
+#+LaTeX_HEADER:\usepackage[margin=1.2in]{geometry}
+#+LaTeX_HEADER: \usepackage{amsmath}
+#+LaTeX_HEADER: \usepackage{stmaryrd}
+#+LaTeX_HEADER: \usepackage{hackgreek}
+#+LaTeX_HEADER: \DeclareMathOperator{\free}{Free}
+#+LaTeX_HEADER: \DeclareMathOperator{\ex}{ex}
+#+LaTeX_HEADER: \DeclareMathOperator{\cw}{cw}
+#+LaTeX_HEADER: \DeclareMathOperator{\tw}{tw}
+#+LaTeX_HEADER: \DeclareMathOperator{\entropy}{Entropy}
+#+LaTeX_HEADER: \newcommand{\set}[1]{ \left\{ #1 \right\} }
+
+* Notation
+
+- $∼$ :: $U ∼ W$ if every element of $U$ has every element of $W$ as a neighbour.
+- $≁$ :: $U ≁ W$ if no element of $U$ has any element of $W$ as a neighbour.
+- $⊂$ :: Subgraph: $G_1 ⊂ G_2$ if $V(G_1) ⊂ V(G_2)$ and $E(G_1) ⊂ E(G_2)$.
+- $<$ :: Induced subgraph: $G_1 < G_2$ if $V(G_1) ⊂ V(G_2)$ and $xy ∈ E(G_1)$ iff $x, y ∈ V(G_1)$ and $xy ∈ E(G_2)$.
+- $⊏$ :: Spanning subgraph: $G_1 ⊏ G_2$ if $V(G_1) = V(G_2)$ and $E(G_1) ⊂ E(G_2)$.
+- $≺$ :: Minor: $G_1 ≺ G_2$ if it can be obtained by vertex deletions, edge deletions and edge contractions.
+- ${[X]}$ :: For a set $X$ of graphs, the hereditary closure of $X$: $\set{ G : ∃H ∈ X: G ≤ H}$.
+- $α(G)$ :: The independence number of $G$; the size of a maximum independent set.
+- $Γ(n)$ :: The set of labelled graphs on $n$ vertices.
+- $χ(G)$ :: The chromatic number of $G$; the minimum number of labels needed to color $G$.
+- $ω(G)$ :: The clique number of $G$; the size of a maximum clique.
+- $\cw(G)$ :: The clique width of $G$.
+- $\entropy(P)$ :: $\lim_{n→∞} \ln(P(n))/\binom n2$.
+- $\ex(n, G)$ :: The greatest $m$ such that there exists $H$ with $n$ vertices and $m$ edges, but without $G ⊆ H$.
+- $\free(M)$ :: The set of all graphs $G$ satisfying: $H ∈ M ⇒ H ≰ G$.
+- $F_X$ :: The set of minimal forbidden induced subgraphs for $X$.
+- ${G[U]}$ :: The subgraph of $G$ induced by the vertices in $U$.
+- $K_n$ :: The complete graph on $n$ vertices.
+- $K_{m,n}$ :: The complete bipartite graph with partition sizes $m$ and $n$.
+- $N(v)$ :: The neigbourhood of $v$: $\set{u ∈ V: u ∼ v}$.
+- $P_{i,j}$ :: The set of graphs $G$ such that whenever $U, W ⊂ V$ with $U ∩ W = \varnothing$, $|U| ≤ i$, $|W| ≤ j$, there is $v ∉ U ∪ W$ such that $v ∼ U$ and $v ≁ W$.
+- $P(n)$ :: Where $P$ is a graph property (a set of graphs), $P ∩ Γ(n)$.
+- $T^r(n)$ :: The unique complete $r$-partite graph with $n$ vertices whose partitian sets differ in size by at most $1$. If $n < r$, we say $T^r(n) = K_n$.
+- $t_r(n)$ :: $|E(T^r(n))|$.
+- $\tw(G)$ :: The tree-width of $G$; the minimum width of any tree decomposition.
+
+* Definitions
+
+- $χ$-bounded :: A class $X$ of graphs is $χ$-bounded if there is $f: ℕ→ℕ$ such that for every $G ∈ X$, $χ(G) ≤ f(ω(G))$.
+- Almost all :: Almost all graphs have property $P$ if $\lim_{n→∞}|P(n)|/|Γ(n)| = 1$.
+- Bipartite graph :: One whose vertices can be partitioned into two independent sets. $\free(C_3, C_5, C_7, …)$.
+- Chain graph :: A bipartite graph $G = (A, B, E)$ such that $A$ and $B$ can be ordered under inclusion of neigbourhoods. So $A = {a_1, …, a_n}$ where $N(a_i) ⊆ N(a_{i+1})$, and the same for $B$. $\free(2K_2, C_3, C_5, …)$.
+- Characteristic graph :: The graph formed from $G$ by contracting each nontrivial module to a single vertex.
+- Chordal graph :: One with no chordless cycles of length $≥ 4$. $\free(C_4, C_5, …)$.
+- Clique :: A subset of $V$ which induces a complete graph.
+- Clique width :: the minimum number of labels needed to construct a graph $G$ with the following operations: $i(v)$ creates a vertex of label $i$; $G ⊕ H$ is the disjoint union of two graphs; $η_{i,j}(G)$ adds an edge from every vertex of label $i$ to every vertex of label $j$; $ρ_{i,j}(G)$ renames label $i$ to label $j$.
+- Co-component :: A set of vertices which form a connected component in $\bar G$.
+- Cograph :: A $P_4$-free graph ("complement-reducible").
+- Comparability graph :: One which admits a transitive orientation of its edges (so if $ab$ and $bc$ are directed edges, $ac$ is a directed edge).
+- Connected :: A graph is connected if there is a path between any two vertices. It is $k$-connected if there is no $U ⊆ V$ with $|U| ≤ k-1$ such that $G \smallsetminus U$ is disconnected.
+- Distinguish :: A vertex $v$ distinguishes a set $U ∌ v$ if there are $v ∼ u_1 ∈ U$ and $v ≁ u_2 ∈ U$.
+- Expand :: In a graph $G$, we expand a vertex $v$ by adding a new vertex $v'$ with $N(v') = N(v)$, and an edge $vv'$.
+- Hereditary :: A set $X$ of graphs is hereditary if $G ∈ X, H ≤ G ⇒ H ∈ X$. It is *finitely defined* if it is $\free(M)$ for some finite set $M$.
+- Independent set :: A set of vertices, no two of which are adjacent.
+- Intersection graph :: For a collection $F = \set{A_1, …, A_n}$ of arbitrary sets, the intersection graph has $V = F$ and $A_iA_j ∈ E$ iff $A_i ∩ A_j ≠ \varnothing$.
+- Interval graph :: The intersection graph of a collection of intervals in $ℝ$.
+- Minimal forbidden induced subgraph :: For a hereditary class $X$, a graph $G ∈ X$ such that for any $v ∈ V$, $G-v ∈ X$.
+- Module :: A set $U ⊂ V$ indistinguishable to any $v ∉ U$ (so every $u ∈ U$ has the same neighbours outside $U$). It is *trivial* if it is a singleton or $V$ itself; it is *proper* if it is not $V$.
+- Monotone :: A set of graphs is monotone if it is closed under taking subgraphs. (Needed for exam.)
+- Perfect :: $G$ is perfect if $H ≤ G ⇒ χ(H) = ω(H)$.
+- Permutation graph :: Let $σ$ be a permutation on $\set{1, …, n}$. Its permutation graph is $G[σ]$ with $V = \set{1, …, n}$ and $ij ∈ E$ iff $(i-j)(σ(i) - σ(j)) < 0$. If we draw $σ$ as two rows of $n$, with $i$ above $σ(i)$, and a line between $i$ on each row, then $G[σ]$ is the intersection graph of the lines.
+- Prime :: A graph is prime if each of its modules is trivial.
+- Property :: A property is a set $P$ of grahps, and we say a graph $G$ has property $P$ if $G ∈ P$. $P$ is called constant if there is $c$ such that $|P(n)| ≤ c$ for all $n$.
+- Quasi-order :: A binary relation which is reflexive and transitive. A set of pairwise comparable elements is called a *chain*; a set of pairwise incomparable elements is called an *antichain*. A *well-quasi-order* is one with neither infinite antichains nor infinite strictly decreasing chains.
+- Separator :: A subset $U ⊂ V$ such that $G \smallsetminus U$ is disconnected.
+- Simplicial :: A vertex is simplicial if its neigbourhood is a clique.
+- Split graph :: A graph that can be partitioned into a clique and an independent set. Split graphs are $\free(2K_2, C_4, C_5)$.
+- Threshold graph :: A $P_4$-free split graph. $\free(2K_2, C_4, P_4)$.
+- Triangulation :: $H$ is a triangulation of $G$ if $H$ is chordal and $G ⊑ H$
+- Tree decomposition :: $G$ a graph, $T$ a tree, and $V = (V_t)_{t ∈ V(T)}$ a family of vertex sets $V_t ⊆ V(G)$. $(T, V)$ is called a tree decomposition for $G$ if: $V(G) = \bigcup V_t$; $(u,v) ∈ E(G) ⇒ ∃ t ∈ V(T): u, v ∈ V_t$; if $t_1, t_2, t_3 ∈ T$ with $t_2$ on the path from $t_1$ to $t_3$, then $V_{t_1} ∩ V_{t_3} ⊆ V_{t_2}$. The $V_t$ are called the *bags* of the decomposition. The *width* of the decomposition is $\max\set{|V_t|} - 1$.
+
+* Theorems
+
+** Introduction
+
+- *Handshake lemma* $\sum_{v ∈ V} \deg(v) = 2|E|$.
+- Corollary: in any graph, the number of vertices of odd degree is even.
+- A set $X$ of graphs is hereditary iff $X = \free(M)$ for some $M$.
+- For any hereditary class $X$, $X = \free(F_X)$; and if $X = \free(M)$ then $M ⊇ F_X$.
+- If $X = \free(M)$, then $\bar X = \free(\bar M)$. Proof omitted.
+- $\free(M) ⊂ \free(N)$ iff for every $G ∈ N$ there is $H ∈ M$ such that $H ≤ G$.
+
+** Modular decomposition and cographs
+
+- A graph is a cograph iff for any $H ≤ G$ with $|V(H)| ≥ 2$, either $H$ or $\bar H$ is disconnected.
+- Any cograph $G$ can be decomposed into a cotree $T$. If $|V| = 1$, $T = K_1$ labelled as the vertex of $G$; if $G$ is disconnected, $T$ is a vertex lablled $1$ with children the cotrees of $G$'s connected components; and if $G$ is connected, $T$ is a vertex labelled $0$ with children the cotrees of $G$'s co-components. We can reconstruct $G$ given $T$.
+- Given modules $U, V$, then $U ∩ V$ is a module and if $U ∩ V ≠ \varnothing$ then $U ∪ V$ is a module.
+- If $G$ is connected and co-connected, it admits a unique partition into maximal proper modules.
+- The only minimal prime extensions of $2K_2$ are $P_5$; the graph $C_6$ with two chords, kind of like $⊲\!\square\!⊳$; and that graph with a diagonal chord.
+
+** Separating cliques and chordal graphs
+
+- A noncomplete connected graph is chordal iff each of its minimal separators is a clique.
+- Any chordal graph has a simplicial vertex. If it is not complete, it has two nonadjacent simplicial vertices.
+- If $G ∈ \free(C_4, C_5, 2K_2)$, then it can be partitioned into a clique and an independent set.
+- Let $P,Q$ be finitely defined hereditary classes, with constants $p, q$ such that $G ∈ P ⇒ ω(G) ≤ p$ and $G ∈ Q ⇒ α(G) ≤ q$. Let $X$ be the set of graphs $G$ which can be decomposed into subsets $A$, $B$ with $G[A] ∈ P$ and $G[B] ∈ Q$. Then $X$ is hereditary and finitely defined. Proof omitted.
+- Let $d = (d_1, …, d_n)$ be a nonincreasing degree sequence for $G$. Let $m = \max\set{i : d_i ≥ i-1}$. Then $G$ is split iff $\sum_{i=1}^m d_i - \sum_{i=m+1}^n d_i = m(m-1)$.
+- *Properties of threshold graphs*
+  - The complement of a threshold graph is a threshold graph.
+  - Every threshold graph has either an isolated vertex or one adjacent to all others.
+  - The only self-complementary threshold graph is $K_1$.
+  - There are $2^{n-1}$ pairwise nonisomorphic threshold graphs on $n$ vertices.
+
+** Bipartite graphs
+
+- Let $G$ be a chain graph, and $G'$ be the bipartite graph obtained by deleting all the edges in the clique of $G$. Then $G$ is threshold iff $G'$ is chain.
+- A chain graph $G = (A, B, E)$ is prime iff $|A| = |B|$ and for each $i = 1, 2, …, |A|$, each of $A$ and $B$ contains precisely one vertex of degree $i$.
+
+** Trees
+
+- For any graph $T$, TFAE:
+  - $T$ is a tree.
+  - Any $u, v ∈ V(T)$ are connected by a unique path.
+  - Deleting any edge of $T$ disconnects it.
+  - Connecting any two nonadjacent vertices of $T$ connects it.
+  - $T$ is connected and $|E(T)| = |V(T)| - 1$.
+- Any tree except $K_1$ has at least two vertices of degree $1$.
+
+** Graph width parameters
+
+- For any clique $K$ in $G$ and any tree decomposition of $G$, there is a bag containing $K$.
+- $\tw(G) = \min\set{ ω(H) - 1 : H \text{ is a triangulation of } G}$. Proof omitted.
+- A tree $T$ has $\tw(T) = 1$.
+- $\cw(G)$ is at most...
+  - $2$ if $G$ is a cograph.
+  - $3$ if $G$ is a forest.
+  - $4$ if $G$ is a cycle.
+  - $5$ if $G$ is the complement of a cycle.
+- $\cw(G) = \max\set{\cw(H) : H \text{ is a prime induced subgraph of } G}$.
+
+** Perfect graphs
+
+- *Strong perfect graph theorem* Perfect graphs are precisely $\free(C_5, \bar{C_5}, C_7, \bar{C_7}, …)$. Not proved.
+- If $G$ is perfect and $G'$ is obtained by expanding a vertex of $G$, then $G'$ is perfect.
+- If $G$ is perfect then it has a clique intersecting all maximal independent sets of $G$.
+- *Perfect graph theorem* $G$ is perfect iff $\bar G$ is perfect.
+- Every chordal graph is perfect.
+- Every permutation graph is a comparability graph.
+- The complement of a permutation graph is a comparability graph.
+- $G$ is a permutation graph iff both $G$ and $\bar G$ are comparability graphs. Proof of $⇐$ omitted.
+- $G$ is an interval graph iff it is chordal and $\bar G$ is a comparability graph. Proof omitted.
+- There exist $K_3$-free graphs of arbitrarily large chromatic number.
+- For any fixed $k ≥ 3$, there exists $G ∈ \free(C_3, C_4, …, C_k)$ such that $χ(G)$ is arbitrarily large. Proof omitted.
+- Corollary: $\free(\set{G})$ is $χ$-bounded only if $G$ is a forest. ("iff" is an open conjecture.)
+- $\free(2K_2)$ is $χ$-bounded, with $χ(G) ≤ \binom{ω(G) + 1}{2}$.
+
+** Properties of almost all graphs
+
+- For any $i,j$, almost all graphs have property $P_{i,j}$.
+- Almost all graphs are $k$-connected for any $k$.
+- Almost all graphs have diameter $2$.
+- For a hereditary property $P$, TFAE:
+  - $P$ is constant.
+  - There is $n_0$ such that for $n ≥ n_0$, $P(n) ⊆ \set{ K_n, \bar{K_n} }$.
+  - None of the following is a subclass of $P$: $\mathcal{S}$, the class of stars and edgeless graphs; $\mathcal{E}$, the class of graphs with at most one edge; $\mathcal{\bar S}$; $\mathcal{\bar E}$.
+- Any infinite hereditary class contains either every $K_n$ or every $\bar{K_n}$.
+
+** Extremal graph theory
+
+- $G$ is complete multipartite iff it is $(K_1 + K_2)$-free. Equivalently, $G$ is a disjoint union of cliques iff it is $P_3$-free.
+- Among $K_r$-free complete multipartite graphs, $T^{r-1}(n)$ contains the maximum number of edges.
+- For $n ≥ r$, $t_r(n) = t_r(n-r) + (n-r)(r-1) + \binom{r}{2}$.
+- If $G ∈ \free(K_r)$ with $\ex(n, K_r)$ edges, then $G = T^{r-1}(n)$.
+- If $G$ is $K_r$-free, there exists $G'$ with $V(G') = V(G)$ and for each $v ∈ V$, $\deg_G(v) ≤ \deg_{G'}(v)$.
+- If $n ≥ r+1$ and $|E(G)| ≥ t_{r-1}(n) + 1$, then $G ⊇ K_{r+1} \smallsetminus \set{\text{an edge}}$.
+- *Erdős-Stone theorem* Let $r ≥ 2$ and $s, ε > 0$. Then there is $n_0$ such that if $n ≥ n_0$ and $G$ has $n$ vertices and at least $t_r(n) + εn^2$ edges, then $G$ contains as a subgraph the complete multipartite graph on $n$ vertices with partitions of size $s$. Not proved.
+- For any graph $H$ with at least one edge, $\lim_{n→∞} \ex(n,H) / \binom n2 = (χ(H) - 2)/(χ(H) - 1)$.
+- $\entropy(\free(H)) = (χ(H) - 2)/(χ(H) - 1)$.
+- Let $\mathcal E_{i,j}$ denote the class of graphs which can be partitioned into at most $i$ cliques and $j$ independent sets. For a class $P$, let $k$ be the maximum number for which $P$ contains an $\mathcal E_{i,j}$ with $i+j = k$. Then $\entropy(P) = 1 - 1/k$.
+
+** Ramsey theory
+
+- *Ramsey's theorem* For $k, r, p ∈ ℕ$, assign one of $r$ colours to each of the $k$-subsets of an $n$-set. There is some $n$ such that there will be a $p$-set all of whose $k$-subsets have the same colour.
+- *Ramsey's theorem for graphs* ($r=2$) For any $p$ there is $n$ such that every graph of at least $n$ vertices contains either a clique or an independent set of size $p$.
+- For $p, q ≥ 2$, $R(p, q) ≤ R(p-1, q) + R(p, q-1)$.
+- $R(p, q) ≤ \binom{p+q-2}{p-1}$.
+- *Infinite Ramsey theorem* Let $r, k ∈ ℕ$ and $X$ an infinite set. For any coloring of the $k$-subsets of $X$ with $r$ colors, there is an infinite subset of $X$ all of whose $k$-subsets have the same colour.
+- *Kőnig's infinity lemma* Let $G$ be an infinite graph, with its vertices partitioned into finite sets $V_i$ such that every $v ∈ V_i$ has a neighbour $f(v) ∈ V_{i-1}$.
+- For all $s$ there is $n$ such that any $2$-coloring of the edges of $K_{n,n}$ has a monochromatic $K_{s,s}$.
+- A graph of diameter $D$ and max vertex degree $Δ$ has at most $Δ(Δ-1)^D/(Δ-2)$ vertices.
+- For all $l, s, t$ there is $n$ such that any connected $n$-graph contains either $K_l$, $K_{1,s}$ or $P_t$.
+
+** Minors and minor-closed graph classes
+
+- A class $X$ of graphs is minor-closed iff it can be characterised by a set of minimal forbidden minors.
+- *Hadwiger's conjecture* If $χ(G) ≥ r$, then $K_r ≼ G$. Proved for $r ≤ 4$, and known for $r ≤ 6$.
+- A graph with at least three vertices is edge-maximal without a $K_4$ minor iff it can be recursively constructed from triangles by pasting along $K_2$'s.
+- Corollary: every edge-maximal $K_4$-minor-free graph has $2|V| - 3$ edges.
+- If $G$ is connected planar with $n$ vertices, $m$ edges and $f$ faces, then $n - m + f = 2$.
+- If $G$ is connected planar with $n ≥ 3$ vertices and $m$ edges, then $m ≤ 3n-6$. If $G$ is additionally $K_3$-free, then $m ≥ 2n-4$.
+- $K_5$ and $K_{3,3}$ are not planar.
+- Every planar graph is $5$-colourable.
+- Planar graphs are precisely those without a $K_5$ or $K_{3,3}$ minor. Not proved.
+- The set of all (simple) graphs is well-quasi-ordered by the minor relation. Not proved.
+- Every minor-closed class can be characterised by finitely many forbidden minors.
+- Every infinite sequence of a wqo set contains an increasing subsequence.
+- If $X$ is wqo by $≤$, let $X^*$ be the finite subsets of $X$. For $A,B ∈ X^*$, we say $A ≤ B$ if there is an injection $f:A→B$ such that $a ≤ f(a)$ for each $a ∈ A$. Then $X^*$ is wqo by $≤$.
+- The set of finite trees is wqo by the /topological minor/ relation: $H$ is a topological minor of $G$ if we can repeatedly replace an edge $xy$ with a vertex $z$ and edges $xz, zy$, and eventually get a subgraph of $G$.
+- *Kruskal's tree theorem* If $X$ has a wqo, then the set of finite trees whose vertices are labelled by elements of $X$ is wqo by the topological minor relation.
+- *Higman's lemma* If $X$ has a wqo, then so does the set of finite sequences of $X$.
+- A monotone class is wqo by the subgraph relation iff it contains finitely many cycles and finitely many $H$-graphs.
+- If $X$ is a hereditary class and the prime graphs from $X$ are strongly wqo by induced subgraphs, then $X$ is wqo by induced subgraphs. (Strongly wqo: *CHECK ME*)
+- Corollary: $\free(P_4)$ is wqo by induced subgraphs.
+- For some alphabet $Σ$ and $P ⊆ Σ^2$, define the letter graph $G$ of a word $w = w_1…w_n$ as having $V = {w_i}$ and for $i < j$, $w_iw_j ∈ E$ if $(w_i, w_j) ∈ P$. Let $Γ_k$ be the set of letter graphs on $|Σ| = k$. Then $Γ_k$ is wqo by $≤$.
+- If $G$ is a line graph and $x ∈ V$, then $\overline{G[N(x)]}$ is bipartite.
+- Line graphs are hereditary, and $\free(K_{1,3}, K_4 \smallsetminus \set{\text{an edge}}) ⊆ \set{\text{line graphs}} ⊆ \free(K_{1,3}, W_5)$. ($W_5$ is the wheel with $6$ vertices.)
+- Let $G$ be a graph, $Δ$ its max vertex degree, and $L$ its line graph. Then $Δ ≤ χ(L) ≤ Δ+1$. Not proved.
