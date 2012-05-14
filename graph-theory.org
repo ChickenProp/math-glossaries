@@ -218,7 +218,7 @@
 - *Kruskal's tree theorem* If $X$ has a wqo, then the set of finite trees whose vertices are labelled by elements of $X$ is wqo by the topological minor relation.
 - *Higman's lemma* If $X$ has a wqo, then so does the set of finite sequences of $X$.
 - A monotone class is wqo by the subgraph relation iff it contains finitely many cycles and finitely many $H$-graphs.
-- If $X$ is a hereditary class and the prime graphs from $X$ are strongly wqo by induced subgraphs, then $X$ is wqo by induced subgraphs. (Strongly wqo: *CHECK ME*)
+- If $X$ is a hereditary class and the prime graphs from $X$ are strongly wqo by induced subgraphs, then $X$ is wqo by induced subgraphs. (Strongly wqo: label the graphs in $Y$ by elements of a wqo $Q$. Say $H$ is a label-induced sugraph of $G$ if $H ≤ G$ and the label of any vertex in $H$ is $≤$ the label of its corresponding vertex in $G$. $Y$ is strongly wqo if for any such labelling, the labelled graphs are wqo by the label-induced subgraph relation.)
 - Corollary: $\free(P_4)$ is wqo by induced subgraphs.
 - For some alphabet $Σ$ and $P ⊆ Σ^2$, define the letter graph $G$ of a word $w = w_1…w_n$ as having $V = {w_i}$ and for $i < j$, $w_iw_j ∈ E$ if $(w_i, w_j) ∈ P$. Let $Γ_k$ be the set of letter graphs on $|Σ| = k$. Then $Γ_k$ is wqo by $≤$.
 - If $G$ is a line graph and $x ∈ V$, then $\overline{G[N(x)]}$ is bipartite.
