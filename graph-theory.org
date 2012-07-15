@@ -155,7 +155,7 @@
 - *Perfect graph theorem* $G$ is perfect iff $\bar G$ is perfect.
 - Every chordal graph is perfect.
 - Every permutation graph is a comparability graph.
-- The complement of a permutation graph is a comparability graph.
+- The complement of a permutation graph is a permutation graph.
 - $G$ is a permutation graph iff both $G$ and $\bar G$ are comparability graphs. Proof of $⇐$ omitted.
 - $G$ is an interval graph iff it is chordal and $\bar G$ is a comparability graph. Proof omitted.
 - There exist $K_3$-free graphs of arbitrarily large chromatic number.
@@ -194,7 +194,7 @@
 - For $p, q ≥ 2$, $R(p, q) ≤ R(p-1, q) + R(p, q-1)$.
 - $R(p, q) ≤ \binom{p+q-2}{p-1}$.
 - *Infinite Ramsey theorem* Let $r, k ∈ ℕ$ and $X$ an infinite set. For any coloring of the $k$-subsets of $X$ with $r$ colors, there is an infinite subset of $X$ all of whose $k$-subsets have the same colour.
-- *Kőnig's infinity lemma* Let $G$ be an infinite graph, with its vertices partitioned into finite sets $V_i$ such that every $v ∈ V_i$ has a neighbour $f(v) ∈ V_{i-1}$.
+- *Kőnig's infinity lemma* Let $G$ be an infinite graph, with its vertices partitioned into finite sets $V_i$ such that every $v ∈ V_i$ has a neighbour $f(v) ∈ V_{i-1}$. Then $G$ has an infinite path $v_0, v_1, …$ such that $f(v_i) = v_{i-1}$.
 - For all $s$ there is $n$ such that any $2$-coloring of the edges of $K_{n,n}$ has a monochromatic $K_{s,s}$.
 - A graph of diameter $D$ and max vertex degree $Δ$ has at most $Δ(Δ-1)^D/(Δ-2)$ vertices.
 - For all $l, s, t$ there is $n$ such that any connected $n$-graph contains either $K_l$, $K_{1,s}$ or $P_t$.

@@ -157,7 +157,7 @@ Abbreviations: FD "finite dimensional", C "central", S "simple".
 - If $A,B$ are FDS $K$-algebras and $A$ is also central, then $A⊗B$ is simple.
 - If $A$ is an $n$-dimensional central simple $K$-algebra, then there is a $K$-algebra isomorphism $A ⊗ A^\op ≅ M_n(K)$.
 - If $A, B$ are FD division $K$-algebras and are Brauer-equivalent, then $A ≅ B$.
-- Corollary: every Brauer-equivalence class has a unique rerpsentative which is a FDCS division algebra.
+- Corollary: every Brauer-equivalence class has a unique representative which is a FDCS division algebra.
 - If $A$ is an FDS $K$-algebra, $M,N$ are finitely generated $A$-modules and $\dim_K(M) = \dim_K(N)$ then $M ≅ N$ as $A$-modules.
 - *Skolem-Noether* Let $K$ be a field, $A$ an FDCS $K$-algebra, and $B_0, B_1$ simple subalgebras. Then any $K$-algebra isomorphism $B_0 → B_1$ extends to an inner $K$-algebra automorphism $(x \mapsto a^{-1}xa)$ of $A$, for some $a ∈ A$.
 - If $B ⊂ A$ are $K$-algebras, consider $A$ as a $B ⊗ A^\op$-module through the multiplication $(b⊗a)⋅t = bta$. Then $\Z_A(B) ≅ \rend_{B⊗A^\op}(A)$ as $K$-algebras.
